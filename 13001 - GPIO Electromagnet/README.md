@@ -18,6 +18,7 @@ Abstract
 As part of an attempt to design and fabricate a human-observable output for a low-power GPIO pin state, this project investigates the possibility of using an easily-manufactured electromagnet to move the needle of a compass. The project was a success, and various data and observations were collected.
 
 Click for video:
+
 [![DIY GPIO Electromagnet](http://i.ytimg.com/vi/HwJ-mBx93Xw/hqdefault.jpg)](https://www.youtube.com/watch?v=HwJ-mBx93Xw)
 
 Objective
