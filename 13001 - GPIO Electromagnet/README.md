@@ -18,6 +18,8 @@ Abstract
 ---------
 As part of an attempt to design and fabricate a human-observable output for a low-power GPIO pin state, this project investigates the possibility of using an easily-manufactured electromagnet to move the needle of a compass. The project was a success, and various data and observations were collected.
 
+![Electromagnet Energized](resources/3.jpg)
+
 Objective
 ---------
 While LEDs, buzzers, motors, and other typical microcontroller output devices are commonplace, they are either too complex to be fabricated in the home shop, or their current draw exceeds the permissible value for a GPIO pin of an average microcontroller (10-20mA).
@@ -43,9 +45,12 @@ The following materials were used to test the system:
 
 Design & Procedure
 ------------------
+
+![Rod](resources/1.jpg)
+
 The electromagnet was produced as follows. A 1" length of the stainless steel rod was cut with a hacksaw (very easy). The enameled copper wire was wrapped 300 times around the steel rod. Hot glue was used sparingly to secure the windings. The enamel on the loose ends of the copper wire was removed with sandpaper.
 
-![Rod](resources/1.jpg?raw=true "Rod")
+![Electromagnet](resources/2.jpg)
 
 Though not required, in order to simplify the use of the electromagnet, lead wires were soldered to the ends and heat-shrink tubing was used to further secure these joints.
 
@@ -62,6 +67,8 @@ The resistance of the coil was measured to be 4.2 ohms.
 When energized, the electromagnet gently attracts the needle of the compass. The needle swings and oscillates about the electromagnet, when it is energized, and about magnetic North, when the magnet is not energized.
 
 The electromagnet was capable of drawing the needle from a maximum displaced angle of 60 degrees East or West, corresponding to roughly 3/4" lateral distance in each direction.
+
+![Compass](resources/4.mp4)
 
 Discussion
 ----------
