@@ -45,6 +45,8 @@ Design & Procedure
 ------------------
 The electromagnet was produced as follows. A 1" length of the stainless steel rod was cut with a hacksaw (very easy). The enameled copper wire was wrapped 300 times around the steel rod. Hot glue was used sparingly to secure the windings. The enamel on the loose ends of the copper wire was removed with sandpaper.
 
+![Rod](resources/1.jpg?raw=true "Rod")
+
 Though not required, in order to simplify the use of the electromagnet, lead wires were soldered to the ends and heat-shrink tubing was used to further secure these joints.
 
 Jumper wires were used to connect the electromagnet to a solderless breadboard. 200 ohms worth of resistors were placed in series with the electromagnet to reduce the max current draw on the microcontroller output pin to around 15mA. GPIO pin #0 was used for this investigation, and the C code used to activate this pin is included with this report.
