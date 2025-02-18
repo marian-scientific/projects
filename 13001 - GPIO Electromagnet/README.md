@@ -11,14 +11,14 @@ Schedule
   * Finish Build - Feb 15, 2025
   * Collect Data - Feb 15-16, 2025
   * Begin Report - Feb 16, 2025
-  * Complete Report - WIP
-
+  * Complete Report - Feb 17, 2025
 
 Abstract
 ---------
 As part of an attempt to design and fabricate a human-observable output for a low-power GPIO pin state, this project investigates the possibility of using an easily-manufactured electromagnet to move the needle of a compass. The project was a success, and various data and observations were collected.
 
-![Electromagnet Energized](resources/3.jpg)
+Click for video:
+[![DIY GPIO Electromagnet](http://i.ytimg.com/vi/HwJ-mBx93Xw/hqdefault.jpg)](https://www.youtube.com/watch?v=HwJ-mBx93Xw)
 
 Objective
 ---------
@@ -68,7 +68,7 @@ When energized, the electromagnet gently attracts the needle of the compass. The
 
 The electromagnet was capable of drawing the needle from a maximum displaced angle of 60 degrees East or West, corresponding to roughly 3/4" lateral distance in each direction.
 
-[![YouTube](http://i.ytimg.com/vi/HwJ-mBx93Xw/hqdefault.jpg)](https://www.youtube.com/watch?v=HwJ-mBx93Xw)
+![Electromagnet Energized](resources/3.jpg)
 
 Discussion
 ----------
