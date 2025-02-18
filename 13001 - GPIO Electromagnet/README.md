@@ -68,8 +68,7 @@ When energized, the electromagnet gently attracts the needle of the compass. The
 
 The electromagnet was capable of drawing the needle from a maximum displaced angle of 60 degrees East or West, corresponding to roughly 3/4" lateral distance in each direction.
 
-https://github.com/marian-scientific/reports/blob/b18e2f5110f68ba0ddccaf684d84e5fa37a5ceac/13001%20-%20GPIO%20Electromagnet/resources/4.mp4
-
+[![GPIO Electromagnet](https://img.youtube.com/vi/HwJ-mBx93Xw/0.jpg)](https://www.youtube.com/watch?v=HwJ-mBx93Xw)
 
 Discussion
 ----------
