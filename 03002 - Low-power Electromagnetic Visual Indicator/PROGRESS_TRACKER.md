@@ -14,7 +14,7 @@
 ![Coil Winding Rig](resources/coil-winding-rig.jpg)
 * First (of at least two) 1000-turn electromagnet wound with 36 AWG wire, with enamel removed & leads soldered. Resistance measured at roughly 50 ohms.
 ![Coil](resources/coil.jpg)
-* Tested electromagnet @ 3.3V, 200 ohms supplemental circuit resistance, so around 13mA, quantitatively much stronger than the 300-turn 30 AWG version tested in investigation [13001](marian-scientific/reports/13001%20-%20GPIO%20Electromagnet).
+* Tested electromagnet @ 3.3V, 200 ohms supplemental circuit resistance, so around 13mA, quantitatively much stronger than the 300-turn 30 AWG version tested in investigation [13001](https://github.com/marian-scientific/reports/13001%20-%20GPIO%20Electromagnet).
 
 ### February 23, 2025
 
