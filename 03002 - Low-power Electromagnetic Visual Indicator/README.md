@@ -1,4 +1,4 @@
-03002 Low-power Electromagnet Visual Indicator
+03002 Low-power Electromagnet Visual Indicator (LEVI)
 ========================
 *Matt DiPalma, AMDG*
 
