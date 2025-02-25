@@ -19,3 +19,21 @@
 ### February 23, 2025
 
 * (This) reporting structure created as a template for all future projects.
+
+### February 24, 2025
+
+* Cup found to serve as container for DIY compass.
+* Steel wire in inventory to use for needle for DIY compass.
+* OpenSCAD code to generate ring to be 3D-printed for floating needle support for DIY compass:
+
+```
+$fn=100;
+OD=58;
+ID=50;
+thickness=3;
+
+difference(){
+    cylinder(h=thickness,d=OD,center=true);
+    cylinder(h=2*thickness,d=ID,center=true);
+    };
+```
