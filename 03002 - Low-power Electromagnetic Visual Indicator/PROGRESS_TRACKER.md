@@ -37,3 +37,21 @@ difference(){
     cylinder(h=2*thickness,d=ID,center=true);
     };
 ```
+
+### February 26, 2025
+
+* Brainstorming done for required materials for Concept B
+* OpenSCAD code to generate basin to be 3D-printed for DIY compass in respect of the new [MP07](https://github.com/marian-scientific/wiki/wiki/MP07-%E2%80%90-Vertical-Integration):
+
+```
+$fn=100;
+OD=58;
+wall_thickness=1;
+base_thickness=5;
+height=20;
+
+difference(){
+    cylinder(h=height,d=OD);
+    translate([0,0,base_thickness]){cylinder(h=2*height,d=OD-2*wall_thickness);}
+    };
+```
