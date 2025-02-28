@@ -28,8 +28,8 @@
 
 ```
 $fn=100;
-OD=58;
-ID=50;
+OD=29;
+ID=20;
 thickness=3;
 
 difference(){
@@ -45,10 +45,10 @@ difference(){
 
 ```
 $fn=100;
-OD=58;
+OD=32;
 wall_thickness=1;
 base_thickness=5;
-height=20;
+height=15;
 
 difference(){
     cylinder(h=height,d=OD);
