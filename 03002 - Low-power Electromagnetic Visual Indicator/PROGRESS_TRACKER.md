@@ -28,9 +28,9 @@
 
 ```
 $fn=100;
-OD=29;
+OD=28;
 ID=20;
-thickness=3;
+thickness=5;
 
 difference(){
     cylinder(h=thickness,d=OD,center=true);
@@ -53,5 +53,21 @@ height=15;
 difference(){
     cylinder(h=height,d=OD);
     translate([0,0,base_thickness]){cylinder(h=2*height,d=OD-2*wall_thickness);}
+    };
+```
+
+### February 27, 2025
+
+
+### February 28, 2025
+
+```
+$fn=100;
+
+difference(){
+    cube([30,10,10],center=true);
+    translate([0,0,10]) {rotate([0,90,0]) {cylinder(h=50,d=22,center=true);}};
+    translate([10,0,0]){cylinder(h=50,d=1,center=true);}
+    translate([-10,0,0]){cylinder(h=50,d=1,center=true);}
     };
 ```
