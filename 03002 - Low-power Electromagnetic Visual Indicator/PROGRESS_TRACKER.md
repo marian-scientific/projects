@@ -71,3 +71,9 @@ difference(){
     translate([-10,0,0]){cylinder(h=50,d=1,center=true);}
     };
 ```
+
+### March 1, 2025
+
+### March 2, 2025
+
+* Wrapped another 1000-turn electromagnet/
