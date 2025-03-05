@@ -97,3 +97,7 @@ difference(){
 
 * glue up frame for Concept A
 ![Glued Frame](resources/glued_frame.jpg)
+
+### March 4, 2025
+
+* generated raspberry pi pico C SDK code to run 2 opposing electromagnets on separate GPIO pins controlled by a switch/button on another pin
