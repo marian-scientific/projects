@@ -58,6 +58,8 @@ difference(){
 
 ### February 27, 2025
 
+* printed first set of preliminary compass models
+![Compass](resources/compass.jpg)
 
 ### February 28, 2025
 
@@ -74,6 +76,24 @@ difference(){
 
 ### March 1, 2025
 
+* collected and cut eco-friendly materials for Concept A structural frame
+![Sticks](resources/sticks.jpg)
+![Stick Diameter](resources/stick_diameter.jpg)
+
+* carve and assemble preliminary stick frame for concept A
+![Sticks](resources/stick_frame.jpg)
+
+* printed second set of compass ring and chassis models
+![Updated Print](resources/updated_print.jpg)
+
+* preliminary stick frame test with electromagnet
+![Stick Frame Test](resources/stick_frame_test.jpg)
+
 ### March 2, 2025
 
-* Wrapped another 1000-turn electromagnet/
+* wrapped another 1000-turn electromagnet
+* drill chassis for electromagnet mounting
+![Drill Chassis](resources/drill_chassis.jpg)
+
+* glue up frame for Concept A
+![Glued Frame](resources/glued_frame.jpg)
