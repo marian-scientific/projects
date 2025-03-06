@@ -101,3 +101,7 @@ difference(){
 ### March 4, 2025
 
 * generated raspberry pi pico C SDK code to run 2 opposing electromagnets on separate GPIO pins controlled by a switch/button on another pin
+
+### March 5, 2025
+
+* created test circuitry for raspberry pi pico control of 2 electromagnets controlled by a switch
