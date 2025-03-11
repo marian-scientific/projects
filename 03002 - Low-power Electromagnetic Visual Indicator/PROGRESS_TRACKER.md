@@ -105,3 +105,18 @@ difference(){
 ### March 5, 2025
 
 * created test circuitry for raspberry pi pico control of 2 electromagnets controlled by a switch
+
+### March 7, 2025
+
+* successfully implemented Concept A by attracting a suspended nut using the GPIO-powered electromagnets
+* the trick was to use a piece of tape to overcome the residual magnetism in the ferromagnetic cores
+
+### March 8, 2025
+
+* cut and notched a wooden cylinder to be used as a floating support for the DIY compass needle
+* hot-glued a thin ferromagnetic stainless steel wire segment into the notch specified above
+
+### March 9, 2025
+
+* successfully implemented Concept B by deflecting a DIY compass needle using the GPIO-powered electromagnets
+
