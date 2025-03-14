@@ -63,6 +63,8 @@ difference(){
 
 ### February 28, 2025
 
+* OpenSCAD code to generate electromagnet support chassis to be 3D-printed
+
 ```
 $fn=100;
 
@@ -108,7 +110,7 @@ difference(){
 
 ### March 7, 2025
 
-* successfully implemented Concept A by attracting a suspended nut using the GPIO-powered electromagnets
+* successfully implemented Concept B by attracting a suspended nut using the GPIO-powered electromagnets
 * the trick was to use a piece of tape to overcome the residual magnetism in the ferromagnetic cores
 
 ### March 8, 2025
@@ -118,5 +120,8 @@ difference(){
 
 ### March 9, 2025
 
-* successfully implemented Concept B by deflecting a DIY compass needle using the GPIO-powered electromagnets
+* successfully implemented Concept A by deflecting a DIY compass needle using the GPIO-powered electromagnets
 
+### March 13, 2025
+
+* began compiling final report
