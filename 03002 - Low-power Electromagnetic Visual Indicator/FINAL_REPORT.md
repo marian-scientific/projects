@@ -102,10 +102,14 @@ A small region of the enamel at the end of both leads on each electromagnet was 
 ### Test Circuit & Code
 The circuit implemented to test whether or not the prototypical visual indicators would function correctly leveraged a Raspberry Pi Pico and its GPIO pins, which are capable of outputing roughly 15 mA of current at a 3.3V logic level, in line with the design specifications outlined in the [RFP](https://github.com/marian-scientific/proposals/tree/Christ/RFP001%20-%20HOHMO). The circuit itself is trivial. The two electromagnets, each having a resistance of roughly 50 ohms, were wired each in series with 200 ohms of additional resistance, and connected between a GPIO (output) pin and a ground pin of the microcontroller. As such, a current of roughly 13 mA could be actively toggled on/off through either of the electromagnetics, activating their respective magnetic fields. A switch was also connected to another GPIO (input) pin for the purpose of switching between the active electromagnets. 
 
+![Circuit](resources/circuit.jpg)
+
 The code required for this test circuit, to be uploaded to the Pico, is attached to this report, leveraging the Pico C SDK.
 
 ### Concept A - Electromagnet Compass Visual Indicator
 A small cup was 3D-printed and filled with water. A stick, having a thickness less than the inner diameter of the cup, was sliced into a  1/4" thick wafer. A notch was cut into the wooden disk, and a small length of stainless steel wire was glued into the notch. The wooden disk was then placed into the cup of water. This disk setup acts as compass needle, though one not inclined to reorient to point along Earth's magnetic field lines.
+
+![Compass Parts](resources/compass_parts.jpg)
 
 The electromagnets were then placed next to the cup, oriented radially, with roughly 60 deg spacing between them. A piece of paper with "0" and "1" written as output indicators was placed opposite the electromagnets.
 
@@ -117,6 +121,8 @@ The below frame was constructed. The exact dimensions of the frame structure are
 ![Stick Frame](resources/stick_frame.jpg)
 
 Simply, the frame suspends a magnetic stainless steel nut from two vertical posts by a thin thread, giving it enough clearance to swing freely above whatever frame structure is below it. The frame should also position the two electromagnets in such a way that their magnetic fields, when activated, would draw the steel weight towards them in the most efficient way possible.
+
+![Pendulum](resources/pendulum.jpg)
 
 One key detail of this apparatus is that it requires a small piece of tape to be applied to the ends of the electromagnets that are closest to the suspended weight. The critical function of this small piece of tape is described in the Conclusions below.
 
