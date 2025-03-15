@@ -17,11 +17,11 @@ As part of an ongoing effort to design and fabricate a human-observable output f
 
 Click for video of Concept A:
 
-[![DIY GPIO Electromagnet and Compass](http://i.ytimg.com/vi/HwJ-mBx93Xw/hqdefault.jpg)](https://www.youtube.com/watch?v=HwJ-mBx93Xw)
+[![DIY GPIO Electromagnet and Compass](http://i.ytimg.com/vi/tD9r4Nutd2k/hqdefault.jpg)](https://www.youtube.com/watch?v=tD9r4Nutd2k )
 
 Click for video of Concept B:
 
-[![DIY GPIO Electromagnet and Pendulum](http://i.ytimg.com/vi/HwJ-mBx93Xw/hqdefault.jpg)](https://www.youtube.com/watch?v=HwJ-mBx93Xw)
+[![DIY GPIO Electromagnet and Pendulum](http://i.ytimg.com/vi/AwjTqBJ5iOk/hqdefault.jpg)](https://www.youtube.com/watch?v=AwjTqBJ5iOk)
 
 Objective
 ---------
@@ -85,7 +85,7 @@ difference(){
 Design & Procedure
 ------------------
 ### Electromagnets
-Two 03002-001 electromagnets were fabricated and used in the implementation of both Concept A and Concept B. They were each constructed by cutting 1" lengths of the 3/8"-diameter stainless steel rod using a hacksaw. The resulting sharp corners were filed to remove sharp burrs that otherwise pose a risk of cutting skin and/or the thin wire used downstream in the construction of the electromagnets.
+Two 03002-001 electromagnets were fabricated and used in the implementation of both Concept A (electromagnetic compass visual indicator) and Concept B (electromagnetic pendulum visual indicator). They were each constructed by cutting 1" lengths of the 3/8"-diameter stainless steel rod using a hacksaw. The resulting sharp corners were filed to remove sharp burrs that otherwise pose a risk of cutting skin and/or the thin wire used downstream in the construction of the electromagnets.
 
 A temporary wire-winding jig was constructed that suspended the coil of magnet wire in a way that could be ergonomically unraveled while the electromagnets were wound.
 
@@ -96,19 +96,38 @@ Leaving enough lead of magnet wire (2-3") free on both ends, 1000 turns of the 3
 A small region of the enamel at the end of both leads on each electromagnet was abraded off using the sandpaper. The leads were then connected to jumper wires by solder and each joint was strengthened with heat-shrink tubing. 
 
 ### Test Circuit & Code
+The circuit implemented to test whether or not the prototypical visual indicators would function correctly leveraged a Raspberry Pi Pico and its GPIO pins, which are capable of outputing roughly 15 mA of current at a 3.3V logic level, in line with the design specifications outlined in the [RFP](https://github.com/marian-scientific/proposals/tree/Christ/RFP001%20-%20HOHMO). The circuit itself is trivial. The two electromagnets, each having a resistance of roughly 50 ohms, were wired each in series with 200 ohms of additional resistance, and connected between a GPIO (output) pin and a ground pin of the microcontroller. As such, a current of roughly 13 mA could be actively toggled on/off through either of the electromagnetics, activating their respective magnetic fields. A switch was also connected to another GPIO (input) pin for the purpose of switching between the active electromagnets. 
 
-### Concept A - Compass
+The code required for this test circuit, to be uploaded to the Pico, is attached to this report, leveraging the Pico C SDK.
 
-### Concept B - Pendulum
+### Concept A - Electromagnet Compass Visual Indicator
+A small cup was 3D-printed and filled with water. A stick, having a thickness less than the inner diameter of the cup, was sliced into a  1/4" thick wafer. A notch was cut into the wooden disk, and a small length of stainless steel wire was glued into the notch. The wooden disk was then placed into the cup of water. This disk setup acts as compass needle, though one not inclined to reorient to point along Earth's magnetic field lines.
+
+The electromagnets were then placed next to the cup, oriented radially, with roughly 60 deg spacing between them. A piece of paper with "0" and "1" written as output indicators was placed opposite the electromagnets.
+
+The microcontroller was turned on, and the switch was flipped multiple times to test the function of the prototype.
+
+### Concept B - Electromagnet Pendulum Visual Indicator
+The below frame was constructed. The exact dimensions of the frame structure are not expected to be critical for its proper function. Simply, the frame suspends a magnetic stainless steel nut from two vertical posts by a thin thread, giving it enough clearance to swing freely above whatever frame structure is below it. The frame should also position the two electromagnets in such a way that their magnetic fields, when activated, would draw the steel weight towards them in the most efficient way possible.
+
+One key detail of this apparatus is that it requires a small piece of tape to be applied to the ends of the electromagnets that are closest to the suspended weight. The critical function of this small piece of tape is described in the Conclusions below.
+
+The microcontroller was turned on, and the switch was flipped multiple times to test the function of the prototype.
 
 Results & Observations
 ----------------------
--
+Both prototypes were successful in generating a visual output, albeit a small one. Videos of the prototypes working are linked in the Abstract section.
 
-Discussion
-----------
--
+The compass indicator was significantly slower in its response time, as the needle had to slowly swing back and forth and equilibrate oriented along the active electromagnet. The pendulum indicator was able to render its visual output almost immediately.
+
+Contrarily, the pendulum indicator required a lot of fine tuning of the electromagnet positions relative to the suspended weight, making it significantly more challenging to get working. The compass indicator was very much plug-n-play, and only took a matter of seconds to lay out a working configuration.
 
 Conclusions
 -----------
-- The solder joints connecting the ends of the this 36 AWG magnet wire to the ends of the extension wire / jumper wire, although reinforced with heat-shrink tubing, seem qualitatively susceptible to fatigue-induced failure, although no such failure was experienced. It would be preferable if these magnets were potted in some type of epoxy resin, including the solder joint with a much more robust lead wire, such that only the thicker wire was exposed and capable of bending.
+* Electromagnetism is an effective phenomenon for rendering a visual output with very minimal power and current requirements, requiring a very simple apparatus to visualize the changing magnetic fields.
+* An electromagnet can be easily and quickly fabricated. Their geometries and electronic characteristics can easily be customized, as well as their core material.
+* One ferromagnetic core material that has repeatedly shown to be effective is 416 stainless steel.
+* The crude wire-winding jig depicted and described in this report significantly helped facilitate the construction of the electromagnets.
+* The solder joints connecting the ends of the this 36 AWG magnet wire to the ends of the extension wire / jumper wire, although reinforced with heat-shrink tubing, seem qualitatively susceptible to fatigue-induced failure, although no such failure was experienced. It would be preferable if these magnets were potted in some type of epoxy resin, including the solder joint with a much more robust lead wire, such that only the thicker wire was exposed and capable of bending.
+* Both of these visual indicators leveraged a very small magnetic attractive force. To amplify the effect of this small force, all other counteracting forces needed to be minimized or removed altogether. In the case of the compass indicator, the only force opposing the reorientation of the needle is friction against the water. In the case of the pendulum indicator, only a small component of gravity.
+* The small piece of tape placed on the ends of the electromagnet in the for the pendulum electromagnetic visual indicator served a critical purpose. Normally, when these electromagnets are activated and deactivated, they maintain a small residual magnetic field, that is actually strong enough to keep the suspended weight weakly attached to the non-active electromagnet. Because the strength of the electromagnet decreased with the square of the distance away from it, even a small piece of tape is enough thickness to degrade this residual attraction to the degree necessary to allow an activated opposing electromagnet to pull the weight off the deactivated electromagnet.
