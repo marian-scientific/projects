@@ -104,7 +104,7 @@ The circuit implemented to test whether or not the prototypical visual indicator
 
 ![Circuit](resources/circuit.jpg)
 
-The code required for this test circuit, to be uploaded to the Pico, is attached to this report, leveraging the Pico C SDK.
+The code required for this test circuit, to be uploaded to the Pico, is [attached to this report](resources/double-electromagnet-test.c), leveraging the Pico C SDK.
 
 ### Concept A - Electromagnet Compass Visual Indicator
 A small cup was 3D-printed and filled with water. A stick, having a thickness less than the inner diameter of the cup, was sliced into a  1/4" thick wafer. A notch was cut into the wooden disk, and a small length of stainless steel wire was glued into the notch. The wooden disk was then placed into the cup of water. This disk setup acts as compass needle, though one not inclined to reorient to point along Earth's magnetic field lines.
