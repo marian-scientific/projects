@@ -91,7 +91,11 @@ A temporary wire-winding jig was constructed that suspended the coil of magnet w
 
 A small piece of tape was affixed to both ends of the rod in order to prevent any wire wound around the rod from sliding off either end. A strong permanent magnet with a hook (conventionally used for hanging various items) was then stuck to one of the ends of the small steel rod segments, in order to provide a handle by which each rod could be rotated in order to wind the coil around it. 
 
+![Coil Winding Rig](resources/coil-winding-rig.jpg)
+
 Leaving enough lead of magnet wire (2-3") free on both ends, 1000 turns of the 36 AWG magnet wire were wound around each rod, taking care to wind the coil neatly and evenly, such that the diameter was relatively constant along the entire length of the electromagnet.
+
+![Coil](resources/coil.jpg)
 
 A small region of the enamel at the end of both leads on each electromagnet was abraded off using the sandpaper. The leads were then connected to jumper wires by solder and each joint was strengthened with heat-shrink tubing. 
 
@@ -108,7 +112,11 @@ The electromagnets were then placed next to the cup, oriented radially, with rou
 The microcontroller was turned on, and the switch was flipped multiple times to test the function of the prototype.
 
 ### Concept B - Electromagnet Pendulum Visual Indicator
-The below frame was constructed. The exact dimensions of the frame structure are not expected to be critical for its proper function. Simply, the frame suspends a magnetic stainless steel nut from two vertical posts by a thin thread, giving it enough clearance to swing freely above whatever frame structure is below it. The frame should also position the two electromagnets in such a way that their magnetic fields, when activated, would draw the steel weight towards them in the most efficient way possible.
+The below frame was constructed. The exact dimensions of the frame structure are not expected to be critical for its proper function. 
+
+![Stick Frame](resources/stick_frame.jpg)
+
+Simply, the frame suspends a magnetic stainless steel nut from two vertical posts by a thin thread, giving it enough clearance to swing freely above whatever frame structure is below it. The frame should also position the two electromagnets in such a way that their magnetic fields, when activated, would draw the steel weight towards them in the most efficient way possible.
 
 One key detail of this apparatus is that it requires a small piece of tape to be applied to the ends of the electromagnets that are closest to the suspended weight. The critical function of this small piece of tape is described in the Conclusions below.
 
