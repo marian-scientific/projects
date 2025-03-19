@@ -1,7 +1,6 @@
 # 03005 - Progress Tracker
 
 ### March 9, 2025:
-
 * [RFP](https://github.com/marian-scientific/proposals/tree/Christ/RFP002%20-%20MCA) announced.
 
 ### March 15, 2025:
