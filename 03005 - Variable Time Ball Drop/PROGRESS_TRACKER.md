@@ -8,7 +8,8 @@
 
 ### March 17, 2025: 1 hour (1/60)
 * [Contract](https://github.com/marian-scientific/proposals/blob/Christ/RFP002%20-%20MCA/submitted%20proposals/EVALUATION_CRITERIA.md) awarded.
-* Most required componets and raw materials inventoried or ordered.
+* Most required components and raw materials inventoried or ordered.
 
-### March 18, 2025: x hours (x/60)
+### March 18, 2025: 1 hour (2/60)
 * Created this project directory
+* LDR (apparently GM5539) measured 2 kOhms in light, 3 MOhms in dark, but that doesn't exactly match the spec sheet.
