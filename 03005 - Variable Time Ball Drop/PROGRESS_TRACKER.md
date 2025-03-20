@@ -13,3 +13,30 @@
 ### March 18, 2025: 0.5 hours (1/60)
 * Created this project directory
 * LDR (apparently GM5539) measured 2 kOhms in light, 3 MOhms in dark, but that doesn't exactly match the spec sheet.
+
+### March 19, 2025: 0.5 hours (1.5/60)
+* Booted up old RPI4 as testbed for the sensors
+* Created and tested below Python code to record sensor data on pin 2
+
+```
+import time
+from datetime import datetime
+import os
+import sys
+import RPi.GPIO as GPIO
+
+orig_stdout=sys.stdout
+f=open('out.txt','w')
+sys.stdout=f
+
+GPIO.setmode(GPIO.BCM)
+pin=2
+GPIO.setup(pin,GPIO.IN)
+
+while(1):
+    print(datetime.now(),", ",GPIO.input(pin))
+    time.sleep(30)
+
+sys.stdout=orig_stdout
+f.close()
+```
