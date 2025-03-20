@@ -40,3 +40,6 @@ while(1):
 sys.stdout=orig_stdout
 f.close()
 ```
+
+### March 20, 2025: 0 hours (1.5/60)
+* can actually use shell redirection to simplify the above and remove all the sys stuff, and do python xxx.py > out.csv
