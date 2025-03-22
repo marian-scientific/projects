@@ -43,3 +43,6 @@ f.close()
 
 ### March 20, 2025: 0 hours (1.5/60)
 * can actually use shell redirection to simplify the above and remove all the sys stuff, and do python xxx.py > out.csv
+
+### March 21, 2025: 3 hours (4.5/60)
+* trialed and errored a working light sensor circuit with a BJT and a voltage threshold, with outputs both via LED and GPIO input to RPI4 (voltage divider with 1.7 V threshold, very close to LED anyway)
