@@ -46,3 +46,9 @@ f.close()
 
 ### March 21, 2025: 3 hours (4.5/60)
 * trialed and errored a working light sensor circuit with a BJT and a voltage threshold, with outputs both via LED and GPIO input to RPI4 (voltage divider with 1.7 V threshold, very close to LED anyway)
+
+### March 22, 2025: 3 hours (7.5/60)
+* wound solenoid with 500 turns of 28 AWG magnet wire around a plastic straw. soldered extension and breadboard leads to the solenoid
+* tested the solenoid with 5V at 175mA, capable of drawing a thin 430 alloy stainless plunger, see video
+
+[![DIY GPIO Electromagnet and Pendulum](http://i.ytimg.com/vi/aOZ0N7JlEQg/hqdefault.jpg)](https://www.youtube.com/watch?v=aOZ0N7JlEQg)
