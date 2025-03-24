@@ -51,4 +51,10 @@ f.close()
 * wound solenoid with 500 turns of 28 AWG magnet wire around a plastic straw. soldered extension and breadboard leads to the solenoid
 * tested the solenoid with 5V at 175mA, capable of drawing a thin 430 alloy stainless plunger, see video
 
-[![DIY GPIO Electromagnet and Pendulum](http://i.ytimg.com/vi/aOZ0N7JlEQg/hqdefault.jpg)](https://www.youtube.com/watch?v=aOZ0N7JlEQg)
+[![solenoid](http://i.ytimg.com/vi/aOZ0N7JlEQg/hqdefault.jpg)](https://www.youtube.com/watch?v=aOZ0N7JlEQg)
+
+### March 23, 2025: 1 hour (8.5/60)
+* purchased materials for the frame of the output indicator
+* retested the solenoid with 5V at 700mA, which should be safe for short bursts on this 28 AWG wire, and the solenoid was now able to draw in a 3/8" steel cylinder with a considerable amount of force, see video
+
+[![solenoid, more current](http://i.ytimg.com/vi/GkqKA8dyDBk/hqdefault.jpg)](https://www.youtube.com/watch?v=GkqKA8dyDBk)
