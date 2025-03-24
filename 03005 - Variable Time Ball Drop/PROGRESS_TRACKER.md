@@ -55,6 +55,6 @@ f.close()
 
 ### March 23, 2025: 1 hour (8.5/60)
 * purchased materials for the frame of the output indicator
-* retested the solenoid with 5V at 700mA, which should be safe for short bursts on this 28 AWG wire, and the solenoid was now able to draw in a 3/8" steel cylinder with a considerable amount of force, see video
+* retested the solenoid with 5V at 700mA, which should be safe for short bursts on this 28 AWG wire, and the solenoid was now able to draw in a 1/8" steel cylinder with a considerable amount of force, see video
 
 [![solenoid, more current](http://i.ytimg.com/vi/GkqKA8dyDBk/hqdefault.jpg)](https://www.youtube.com/watch?v=GkqKA8dyDBk)
