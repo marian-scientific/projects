@@ -58,3 +58,7 @@ f.close()
 * retested the solenoid with 5V at 700mA, which should be safe for short bursts on this 28 AWG wire, and the solenoid was now able to draw in a 1/8" steel cylinder with a considerable amount of force, see video
 
 [![solenoid, more current](http://i.ytimg.com/vi/GkqKA8dyDBk/hqdefault.jpg)](https://www.youtube.com/watch?v=GkqKA8dyDBk)
+
+### March 24, 2025: 0.25 hours (8.75/60)
+* cut and marked some square dowels for construction of output indicator frame
+* purchased low resistance resistors
