@@ -62,3 +62,8 @@ f.close()
 ### March 24, 2025: 0.25 hours (8.75/60)
 * cut and marked some square dowels for construction of output indicator frame
 * purchased low resistance resistors
+
+### March 25, 2025: 1.25 hours (10/60)
+* tested out steel wire to copper hole scontact liding resistance for automatic mechanical circuit shutoff
+* working voltage divider threshold circuit using nMOS transistor
+* continued to construct output indicator frame using 2-part epoxy to connect square wooden dowels
