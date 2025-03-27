@@ -67,3 +67,7 @@ f.close()
 * tested out steel wire to copper hole scontact liding resistance for automatic mechanical circuit shutoff
 * working voltage divider threshold circuit using nMOS transistor
 * continued to construct output indicator frame using 2-part epoxy to connect square wooden dowels
+
+### March 26, 2025: 0.5 hours (10.5/60)
+* continued to assemble frame structure using two-part epoxy and square wooden dowels
+* identified better voltage divider resistor for a more realistic photoresistor light sensitivity: 47 kOhms
