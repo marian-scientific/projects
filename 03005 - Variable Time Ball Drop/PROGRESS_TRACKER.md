@@ -71,3 +71,8 @@ f.close()
 ### March 26, 2025: 0.5 hours (10.5/60)
 * continued to assemble frame structure using two-part epoxy and square wooden dowels
 * identified better voltage divider resistor for a more realistic photoresistor light sensitivity: 47 kOhms
+
+### March 27, 2025: 1.5 hours (12/60)
+* continued to epoxy frame structure
+* connected MCP3008 ADC to RPI and collected ADC sensor data from photoresistor voltage divider using Python script
+* learned how to use SCP to copy files from computers on the network
