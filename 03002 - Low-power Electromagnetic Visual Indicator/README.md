@@ -1,5 +1,3 @@
-03002 Low-power
-=======
 03002 Low-power Electromagnetic Visual Indicator (LEVI)
 ========================
 *Matt DiPalma, AMDG*
