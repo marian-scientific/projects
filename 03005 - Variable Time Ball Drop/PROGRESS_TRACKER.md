@@ -67,6 +67,7 @@ f.close()
 * tested out steel wire to copper hole scontact liding resistance for automatic mechanical circuit shutoff
 * working voltage divider threshold circuit using nMOS transistor
 * continued to construct output indicator frame using 2-part epoxy to connect square wooden dowels
+
 [![LDR circuit test](http://i.ytimg.com/vi/oyGqoSqluK0/hqdefault.jpg)](https://www.youtube.com/watch?v=oyGqoSqluK0)
 
 ### March 26, 2025: 0.5 hours (10.5/60)
@@ -77,12 +78,14 @@ f.close()
 * continued to epoxy frame structure
 * connected MCP3008 ADC to RPI and collected ADC sensor data from photoresistor voltage divider using Python script
 * learned how to use SCP to copy files from computers on the network
+
 [![LDR ADC sensor input](http://i.ytimg.com/vi/1sxHGp5eQOo/hqdefault.jpg)](https://www.youtube.com/shorts/1sxHGp5eQOo)
 
 ### March 28, 2025: 1.5 hours (13.5/60)
 * completed frame structure for the output indicator
 * create output indicator test circuit
 * tested output indicator
+
 [![solenoid output indicator](http://i.ytimg.com/vi/EjQzM-X2TaQ/hqdefault.jpg)](https://youtube.com/shorts/EjQzM-X2TaQ)
 
 ### March 29, 2025: 2.5 hours (16/60)
@@ -91,4 +94,5 @@ f.close()
 
 ### March 30, 2025: 1.0 hours (17/60)
 * Primitive timing circuit with CD4060BE chip
+
 [![primitive timing circuit test](http://i.ytimg.com/vi/KJ5FcJH2ZSo/hqdefault.jpg)](https://www.youtube.com/watch?v=KJ5FcJH2ZSo)
