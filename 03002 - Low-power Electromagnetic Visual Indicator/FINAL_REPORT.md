@@ -17,7 +17,7 @@ As part of an ongoing effort to design and fabricate a human-observable output f
 
 Click for video of Concept A:
 
-[![DIY GPIO Electromagnet and Compass](http://i.ytimg.com/vi/tD9r4Nutd2k/hqdefault.jpg)](https://www.youtube.com/watch?v=tD9r4Nutd2k )
+[![DIY GPIO Electromagnet and Compass](http://i.ytimg.com/vi/tD9r4Nutd2k/hqdefault.jpg)](https://www.youtube.com/watch?v=tD9r4Nutd2k)
 
 Click for video of Concept B:
 
