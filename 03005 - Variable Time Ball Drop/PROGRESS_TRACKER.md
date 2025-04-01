@@ -96,3 +96,8 @@ f.close()
 * Primitive timing circuit with CD4060BE chip
 
 [![primitive timing circuit test](http://i.ytimg.com/vi/KJ5FcJH2ZSo/hqdefault.jpg)](https://www.youtube.com/watch?v=KJ5FcJH2ZSo)
+
+### March 31, 2025: 2.0 hours (19/60)
+* Set up pi zero repository on Marian-Scientific
+* Some assembly programming on the pi zero to get my bearings
+* Preliminary attempts to get ADC working over SPI on the pi zero for the data collection. It seems to lock up after roughly 20 seconds though, seemingly because of the SPI.
