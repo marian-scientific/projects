@@ -101,3 +101,8 @@ f.close()
 * Set up pi zero repository on Marian-Scientific
 * Some assembly programming on the pi zero to get my bearings
 * Preliminary attempts to get ADC working over SPI on the pi zero for the data collection. It seems to lock up after roughly 20 seconds though, seemingly because of the SPI.
+
+### April 1, 2025: 1.5 hours (20.5/60)
+* Shifted to C code to fix the issues I was getting with lock up on SPI. ADC and GPIO-read code uploaded to [pizero](https://github.com/marian-scientific/pizero/tree/Christ/mcp3008_test) repository. Working example shown below:
+
+[![adc](http://i.ytimg.com/vi/rSSYnsBe2oQ/hqdefault.jpg)](https://youtube.com/shorts/rSSYnsBe2oQ)
