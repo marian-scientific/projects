@@ -106,3 +106,6 @@ f.close()
 * Shifted to C code to fix the issues I was getting with lock up on SPI. ADC and GPIO-read code uploaded to [pizero](https://github.com/marian-scientific/pizero/tree/Christ/mcp3008_test) repository. Working example shown below:
 
 [![adc](http://i.ytimg.com/vi/rSSYnsBe2oQ/hqdefault.jpg)](https://youtube.com/shorts/rSSYnsBe2oQ)
+
+### April 2, 2025: 1 hours (21.5/60)
+* Deconstructed C direct-register blink-type executable into assembly for the pi zero 2 w; see [pizero](https://github.com/marian-scientific/pizero/tree/Christ/asm_blink_test) repository.
