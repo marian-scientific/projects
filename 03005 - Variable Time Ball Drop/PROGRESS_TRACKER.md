@@ -109,3 +109,13 @@ f.close()
 
 ### April 2, 2025: 1 hours (21.5/60)
 * Deconstructed C direct-register blink-type executable into assembly for the pi zero 2 w; see [pizero](https://github.com/marian-scientific/pizero/tree/Christ/asm_blink_test) repository.
+
+### April 4, 2025: 2 hours (23.5/60)
+* Hooked up evaporation sensors (one in tap water, one in salt water) and photoresistor to ADC and began logging data using the pi zero 2 w. See [03005](https://github.com/marian-scientific/pizero/tree/Christ/03005) repository. Data collected overnight to use for calibration of sensors.
+
+### April 5, 2025: 1 hours (24.5/60)
+* Continued collecting sensor data to use for calibration of sensors.
+* Determined 555 timer in monostable mode will be enough to toggle off the solenoid after the trigger signal to prevent it from burning itself up. 555 timers on order.
+
+
+
