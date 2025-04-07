@@ -117,5 +117,7 @@ f.close()
 * Continued collecting sensor data to use for calibration of sensors.
 * Determined 555 timer in monostable mode will be enough to toggle off the solenoid after the trigger signal to prevent it from burning itself up. 555 timers on order.
 
-
-
+### April 6, 2025: 1.5 hours (26/60)
+* Sensor data collection still underway. Tap water probe dried up first. Salt water probe still damp. Blue/green electrolysis (chlorine?) residue on cathode terminal of paper towel.
+* Received 555 timer shipment. Created 1-second monostable pulse generator circuit in short below.
+[![555](http://i.ytimg.com/vi/XP2j5APPI_w/hqdefault.jpg)](https://youtube.com/shorts/XP2j5APPI_w)
