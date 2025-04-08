@@ -121,3 +121,20 @@ f.close()
 * Sensor data collection still underway. Tap water probe dried up first. Salt water probe still damp. Blue/green electrolysis (chlorine?) residue on cathode terminal of paper towel.
 * Received 555 timer shipment. Created 1-second monostable pulse generator circuit in short below.
 [![555](http://i.ytimg.com/vi/XP2j5APPI_w/hqdefault.jpg)](https://youtube.com/shorts/XP2j5APPI_w)
+
+### April 7, 2025: 1.5 hours (27.5/60)
+* Sensor data collection complete. Data plotted and uploaded to resources directory and attached below. Raw data also uploaded.
+* Photoresistor hooked up to pulse generator output and output indicator, see video below.
+* Need to confirm the circuitry, because the solenoid still seems to hold the pin even after the pulse should have gone low.
+
+![light sensor output](resources/light_sensor_output.png)
+
+![light sensor voltage divider](resources/light_sensor_voltage_divider.png)
+
+![light sensor transistor output](resources/light_sensor_transistor_output.png)
+
+![tap water sensor conductivity](resources/tap_water_sensor_output.png)
+
+![salt water sensor conductivity](resources/salt_water_sensor_output.png)
+
+[![pulse output](http://i.ytimg.com/vi/p0xjpmv5IzE/hqdefault.jpg)](https://youtube.com/shorts/p0xjpmv5IzE)
