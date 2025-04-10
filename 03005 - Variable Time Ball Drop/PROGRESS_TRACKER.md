@@ -154,3 +154,8 @@ video:
 
 video:
 [![pulse output](http://i.ytimg.com/vi/dIT7h7QP-OQ/hqdefault.jpg)](https://youtube.com/shorts/dIT7h7QP-OQ)
+
+### April 9, 2025: 1.5 hours (30/60)
+* Created circuit (below) with the CD4060 ripple counter IC to time between 5.5-11.5 hours (using a 1 megaohm potentiometer in series with a 1 megaohm resistor as Rx and a 1uF capacitor as Cx). Hooked it up to the RPI zero with some C code to record outputs of Q13, Q14, and Q4 to time the exact duration of this pulse on the maximum potentiometer setting (11.5 hours). Will repeat for the minimum setting tomorrow to create a linear interpolation on a dial for the potentiometer knob.
+
+![long delay circuit](resources/long_delay_circuit.png)
