@@ -159,3 +159,13 @@ video:
 * Created circuit (below) with the CD4060 ripple counter IC to time between 5.5-11.5 hours (using a 1 megaohm potentiometer in series with a 1 megaohm resistor as Rx and a 1uF capacitor as Cx). Hooked it up to the RPI zero with some C code to record outputs of Q13, Q14, and Q4 to time the exact duration of this pulse on the maximum potentiometer setting (11.5 hours). Will repeat for the minimum setting tomorrow to create a linear interpolation on a dial for the potentiometer knob.
 
 ![long delay circuit](resources/long_delay_circuit.png)
+
+### April 10, 2025: 1.0 hours (31/60)
+* Collected data and generated plot for the CD4060 ripple counter timer with the maximum resistance from above. The elapsed time was 11 hours, 22 minutes, & 25 seconds. See plot of outputs Q13 and Q14 below.
+* Restarted the data collection with the potentiometer at the minimum setting. The expected time is half the above, so 5 hours, 41 minutes, & 13 seconds.
+* The dried paper towels from the evaporative timing test had the bluish/green tint around the positively charged contact. The applied voltage was 3.3V, for reference. See photo below.
+
+![long delay cd4060](resources/long_delay_cd4060.png)
+
+![electrolysis](resources/electrolysis.jpg)
+
