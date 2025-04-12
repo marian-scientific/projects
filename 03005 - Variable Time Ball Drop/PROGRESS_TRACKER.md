@@ -52,6 +52,7 @@ f.close()
 * tested the solenoid with 5V at 175mA, capable of drawing a thin 430 alloy stainless plunger, see video
 
 video:
+
 [![solenoid](http://i.ytimg.com/vi/aOZ0N7JlEQg/hqdefault.jpg)](https://www.youtube.com/watch?v=aOZ0N7JlEQg)
 
 ### March 23, 2025: 1 hour (8.5/60)
@@ -59,6 +60,7 @@ video:
 * retested the solenoid with 5V at 700mA, which should be safe for short bursts on this 28 AWG wire, and the solenoid was now able to draw in a 1/8" steel cylinder with a considerable amount of force, see video
 
 video:
+
 [![solenoid, more current](http://i.ytimg.com/vi/GkqKA8dyDBk/hqdefault.jpg)](https://www.youtube.com/watch?v=GkqKA8dyDBk)
 
 ### March 24, 2025: 0.25 hours (8.75/60)
@@ -71,6 +73,7 @@ video:
 * continued to construct output indicator frame using 2-part epoxy to connect square wooden dowels
 
 video:
+
 [![LDR circuit test](http://i.ytimg.com/vi/oyGqoSqluK0/hqdefault.jpg)](https://www.youtube.com/watch?v=oyGqoSqluK0)
 
 ### March 26, 2025: 0.5 hours (10.5/60)
@@ -83,6 +86,7 @@ video:
 * learned how to use SCP to copy files from computers on the network
 
 video:
+
 [![LDR ADC sensor input](http://i.ytimg.com/vi/1sxHGp5eQOo/hqdefault.jpg)](https://www.youtube.com/shorts/1sxHGp5eQOo)
 
 ### March 28, 2025: 1.5 hours (13.5/60)
@@ -91,6 +95,7 @@ video:
 * tested output indicator
 
 video:
+
 [![solenoid output indicator](http://i.ytimg.com/vi/EjQzM-X2TaQ/hqdefault.jpg)](https://youtube.com/shorts/EjQzM-X2TaQ)
 
 ### March 29, 2025: 2.5 hours (16/60)
@@ -101,6 +106,7 @@ video:
 * Primitive timing circuit with CD4060BE chip
 
 video:
+
 [![primitive timing circuit test](http://i.ytimg.com/vi/KJ5FcJH2ZSo/hqdefault.jpg)](https://www.youtube.com/watch?v=KJ5FcJH2ZSo)
 
 ### March 31, 2025: 2.0 hours (19/60)
@@ -112,6 +118,7 @@ video:
 * Shifted to C code to fix the issues I was getting with lock up on SPI. ADC and GPIO-read code uploaded to [pizero](https://github.com/marian-scientific/pizero/tree/Christ/mcp3008_test) repository. Working example shown below:
 
 video:
+
 [![adc](http://i.ytimg.com/vi/rSSYnsBe2oQ/hqdefault.jpg)](https://youtube.com/shorts/rSSYnsBe2oQ)
 
 ### April 2, 2025: 1 hours (21.5/60)
@@ -129,6 +136,7 @@ video:
 * Received 555 timer shipment. Created 1-second monostable pulse generator circuit in short below.
 
 video:
+
 [![555](http://i.ytimg.com/vi/XP2j5APPI_w/hqdefault.jpg)](https://youtube.com/shorts/XP2j5APPI_w)
 
 ### April 7, 2025: 1.5 hours (27.5/60)
@@ -147,12 +155,14 @@ video:
 ![salt water sensor conductivity](resources/salt_water_sensor_output.png)
 
 video:
+
 [![pulse output](http://i.ytimg.com/vi/p0xjpmv5IzE/hqdefault.jpg)](https://youtube.com/shorts/p0xjpmv5IzE)
 
 ### April 8, 2025: 1 hours (28.5/60)
 * The solenoid current draw (>700 mA) on the 555 timer was way above the amount it could handle, so it was getting stuck at 1V and wasn't able to get to its pulse voltage level, and that's why it wasn't turning off or releasing its pin yesterday. Now I hooked it up to a n-channel MOSFET to drive the solenoid instead. See video below.
 
 video:
+
 [![pulse output](http://i.ytimg.com/vi/dIT7h7QP-OQ/hqdefault.jpg)](https://youtube.com/shorts/dIT7h7QP-OQ)
 
 ### April 9, 2025: 1.5 hours (30/60)
@@ -173,3 +183,14 @@ video:
 * Collected data and generated plot for the CD4060 ripple counter timer with the minimum resistance from above. The elapsed time was 5 hours, 42 minutes, & 17 seconds. That is only a minute and 4 seconds longer than the expectation from yesterday. This is likely due to the small potentiometer resistance at the minimum setting not being truly zero. See plot of outputs Q13 and Q14 below.
 
 ![medium delay cd4060](resources/medium_delay_cd4060.png)
+
+### April 12, 2025: 2.5 hours (34/60)
+* Assembled user interface faceplate for the ripple counter timer circuit output indicator and assembled the core circuitry to drive the output indicator.
+* Replaced the carved wooden ball with an especially spherical acorn that I found, reducing the number of manufactured components by 1.
+* Realized I need an inverter to drive the output because the 555 timer is driven on the falling edge, but the ripple counter timing cycle is oriented towards a rising edge system. Order some inverters that should arrive tomorrow.
+
+![timer assembly 1](resources/indicator_faceplate.png)
+
+![timer assembly 2](resources/indicator_acorn.png)
+
+![timer assembly 3](resources/indicator_circuit.png)
