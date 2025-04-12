@@ -169,3 +169,7 @@ video:
 
 ![electrolysis](resources/electrolysis.jpg)
 
+### April 11, 2025: 0.5 hours (31.5/60)
+* Collected data and generated plot for the CD4060 ripple counter timer with the minimum resistance from above. The elapsed time was 5 hours, 42 minutes, & 17 seconds. That is only a minute and 4 seconds longer than the expectation from yesterday. This is likely due to the small potentiometer resistance at the minimum setting not being truly zero. See plot of outputs Q13 and Q14 below.
+
+![medium delay cd4060](resources/medium_delay_cd4060.png)
