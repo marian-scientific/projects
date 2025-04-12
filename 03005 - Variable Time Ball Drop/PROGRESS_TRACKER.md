@@ -189,8 +189,8 @@ video:
 * Replaced the carved wooden ball with an especially spherical acorn that I found, reducing the number of manufactured components by 1.
 * Realized I need an inverter to drive the output because the 555 timer is driven on the falling edge, but the ripple counter timing cycle is oriented towards a rising edge system. Order some inverters that should arrive tomorrow.
 
-![timer assembly 1](resources/indicator_faceplate.png)
+![timer assembly 1](resources/indicator_faceplate.jpg)
 
-![timer assembly 2](resources/indicator_acorn.png)
+![timer assembly 2](resources/indicator_acorn.jpg)
 
-![timer assembly 3](resources/indicator_circuit.png)
+![timer assembly 3](resources/indicator_circuit.jpg)
