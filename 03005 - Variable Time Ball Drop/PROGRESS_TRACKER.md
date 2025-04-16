@@ -194,3 +194,14 @@ video:
 ![timer assembly 2](resources/indicator_acorn.jpg)
 
 ![timer assembly 3](resources/indicator_circuit.jpg)
+
+### April 14, 2025: 1.0 hours (35/60)
+* Installed inverter IC and tested the system on the shortest time delay.
+* Recorded a YouTube shorts, see below.
+* Attempted to run it overnight as an alarm with around an 8 hour delay.
+
+video:
+
+### April 15, 2025: 0 hours (35/60)
+* Last night's attempt failed because I accidentally left the reset pin connected to the shortest time delay pulse, preventing more than a single pulse from ever getting counter before the ripple counter reset. Trying again tonight.
+
