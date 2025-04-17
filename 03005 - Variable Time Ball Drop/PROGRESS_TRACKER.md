@@ -202,8 +202,13 @@ video:
 
 video:
 
+
+
 ### April 15, 2025: 0 hours (35/60)
-* Last night's attempt failed because I accidentally left the reset pin connected to the shortest time delay pulse, preventing more than a single pulse from ever getting counter before the ripple counter reset. Trying again tonight.
+* Last night's attempt failed because I accidentally left the reset pin connected to the shortest time delay pulse, preventing more than a single pulse from ever getting counted before the ripple counter reset. Trying again tonight.
 
 ### April 16, 2025: 1 hours (36/60)
 * Last night's attempt failed again, so I spent some time debugging. I think my cat pulled out one of the solenoid driving wires. I am trying the trial again, with a few minor changes. First, I hooked the ripple counter circuit reset to the 555 monostable pulse instead of the ripple pulse directly, this means that we will always get a long enough signal to drive the entire circuit. Next, I hooked up an LED to the shortest duration counter pin on the CD4060 to be able to check if the timer is actually running, to avoid losing another night of testing. I did multiple attempts at this setup using the 2 lowest duration output pins, all of which were successful at driving the solenoid as desired and resetting the timer afterwards.
+
+### April 17, 2025: 0 hours (36/60)
+* Last night's test was a success. I set the alarm delay potentiometer such that it would wake me up roughly between 5:50-6:00 AM. At 5:54 AM, the acorn dropped into the cup, waking me up, and the solenoid then deactivated, preventing it from overheating. That is an overwhelming success.
