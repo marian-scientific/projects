@@ -212,7 +212,7 @@ video:
 
 ### April 17, 2025: 3 hours (39/60)
 * Last night's test was a success. I set the alarm delay potentiometer such that it would wake me up roughly between 5:50-6:00 AM. At 5:54 AM, the acorn dropped into the cup, waking me up, and the solenoid then deactivated, preventing it from overheating. That is an overwhelming success.
-* Created [schematic](03005 - Variable Time Ball Drop/resources/03005_circuit_diagram.pdf) in Kicad for the timer circuit.
+* Created [schematic](https://github.com/marian-scientific/reports/blob/Christ/03005%20-%20Variable%20Time%20Ball%20Drop/resources/03005_circuit_diagram.pdf) in Kicad for the timer circuit.
 
 ### April 18, 2025: X hours (X/60)
 * Compiled final report.
