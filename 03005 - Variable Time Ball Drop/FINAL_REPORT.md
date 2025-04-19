@@ -36,7 +36,7 @@ Another goal of this project is to use more commonplace materials such as wood, 
 
 The prototype also continued to pursue self-sourced electromagnets for the purposes of output indication. This parallels the efforts of [13001](https://github.com/marian-scientific/reports/tree/Christ/13001%20-%20GPIO%20Electromagnet) and [03002](https://github.com/marian-scientific/reports/tree/Christ/03002%20-%20Low-power%20Electromagnetic%20Visual%20Indicator) at Marian Scientific.
 
-Lastly, this project was an opportunity to pilot the new reporting format at Marian Scientific (see [PROGRESS_TRACKER.md](https://github.com/marian-scientific/reports/blob/Christ/03005%20-%20Variable%20Time%20Ball%20Drop/PROGRESS_TRACKER.md)), which involved detailing summaries of daily tasks with photo, video, and other evidence, alongside a running tally of labor hours spent on the project. This serves many purposes. First, it serves as an excellent journal of tasks completed, which makes compiling this final report extremely straightforward, while being a great record of tasks completely and observations made, which can be referenced in the future. Second, it enables future project labor estimates to be more accurately made by serving as a basis of comparison. Finally, it allows for a formal archive of all endeavors relative to the project scope. As such, this report does not need to exhaustively regurgitate all steps of the investigation and design process, as that list already exists in the accompanying progress tracker document. To this end, this report will focus primarly on the downselected prototype, with only a brief summary of the investigations made on the alternate configurations.
+Lastly, this project was an opportunity to pilot the new reporting format at Marian Scientific (see [PROGRESS_TRACKER.md](https://github.com/marian-scientific/reports/blob/Christ/03005%20-%20Variable%20Time%20Ball%20Drop/PROGRESS_TRACKER.md)), which involved detailing summaries of daily tasks with photo, video, and other evidence, alongside a running tally of labor hours spent on the project. This serves many purposes. First, it serves as an excellent journal of tasks completed, which makes compiling this final report extremely straightforward, while being a great record of tasks completed and observations made, which can be referenced in the future. Second, it enables future project labor estimates to be more accurately made by serving as a basis of comparison. Finally, it allows for a formal archive of all endeavors relative to the project scope. As such, this report does not need to exhaustively regurgitate all steps of the investigation and design process, as that list already exists in the accompanying progress tracker document. To this end, this report will focus primarly on the downselected prototype, with only a brief summary of the investigations made on the alternate configurations.
 
 Parts List
 ----------
@@ -53,7 +53,7 @@ The materials required for the construction of the output indicator are:
 * 3/4" wood project panel (dimensions unimportant)
 * cardboard (dimensions unimportant)
 * plastic tube (same diameter as required above)
-* hot glue / PVA glue
+* hot glue / CA glue
 * 0.032"-diameter stainless steel wire (alloy 430) (McMaster # 	89065K81)
 * acorn
 
@@ -138,7 +138,7 @@ As an investigation of Concept C using wire leads embedded in paper towels soake
 
 Results & Observations
 ----------------------
-After some debugging, the final concept A prototype was highly successful and repeatable in timing a user-set delay and subsequently triggering the output indicator. As a trial, one night I set the time delay such that it would go off between 5:50 and 6:00AM (this is not as simple as setting an alarm clock, because you are setting a delay, not a time, and you are doing so with limited graduations for the input potentiometer). The next morning, the acorn dropped into the cup at 5:54AM. With all of the inaccuracies of the manufacturing, tolerances in the electronic components, and inherent issues with RC circuit timing accuracy, the alarm went off at the appropriate time, and it was able to wake me up, though I am a light sleeper. If I was a heavy sleeper, dropping a heavier ball onto a pie tin, instead of a cardboard cup, would produce a much louder sound.
+After some debugging, the final concept A prototype was highly successful and repeatable in timing a user-set delay and subsequently triggering the output indicator. As a trial, one night I set the time delay such that it would go off between 5:50 and 6:00AM (this is not as simple as setting an alarm clock, because you are setting a delay, not a time, and you are doing so with limited graduations for the input potentiometer). The next morning, the acorn dropped into the cup at 5:54AM. With all of the inaccuracies of the manufacturing and marking, tolerances in the electronic components, the mental math of the time delay subtraction, and inherent issues with RC circuit timing accuracy, the alarm went off at the appropriate time, and it was able to wake me up, though I am a light sleeper. If I was a heavy sleeper, dropping a heavier ball onto a pie tin, instead of a cardboard cup, would produce a much louder sound.
 
 Concept B, leveraging a light-dependent resistor, did not represent an efficient mechanism of quantifying a delay of time, even one closely related to awaking in the morning, like a sunrise. However, this component has many better use cases involving light detection, which is obviously the purpose for which it exists.
 
@@ -150,7 +150,7 @@ Conclusions
 * 555 timers are easy to configure to generate a pulse of a target width in monostable mode, though they are triggered by a falling edge, which generally requires a signal to be inverted, in applications like these.
 * If user-interface markings are to be made for switches, buttons, or the potentiometer, they should be made before the electronic components are installed, and perhaps they should be printed out neatly on a sheet of paper, as it was quite a challenge to trace precise angles after the potentiometer had already been installed in the cardboard faceplate.
 * Never trust the nominal values of electronic components. Instead, measure the desired quantity of interest (in this case, the time delay) and calibrate accordingly.
-* Electrolysis taking place on conductivity probes, degrading the connection and limiting the application for brief periods of time. Perhaps I need not have constantly probed the resistance, and should have only briefly checked it once every few minutes or so. That would also have saved power.
+* Electrolysis took place on the conductivity probes, degrading the connection and limiting the application for brief periods of time. Perhaps I need not have constantly probed the resistance, and should have only briefly checked it once every few minutes or so. That would also have saved power.
 * Cloudy days often shaded the light sensor affecting the resistance substantially, limiting the application of the light sensor for fine data collection. However, it still may be useful if the threshold is set very low.
 
 Appendix A
