@@ -21,6 +21,7 @@ Click for video of Variable-Time Ball Drop alarm:
 
 [![timer final](http://i.ytimg.com/vi/wb-KzfldAP8/hqdefault.jpg)](https://youtube.com/shorts/wb-KzfldAP8)
 
+
 Objective
 ---------
 There are many objectives of this investigation. The primary objective is to prototype minimal implementations of a timer and integrate them alongside a simple output indicator to form a primitive alarm.
@@ -85,64 +86,102 @@ The materials used in the construction of test setup for the unpursued Concept C
 
 Design & Procedure
 ------------------
-### Electromagnets
-Two 03002-001 electromagnets were fabricated and used in the implementation of both Concept A (electromagnetic compass visual indicator) and Concept B (electromagnetic pendulum visual indicator). They were each constructed by cutting 1" lengths of the 3/8"-diameter stainless steel rod using a hacksaw. The resulting sharp corners were filed to remove sharp burrs that otherwise pose a risk of cutting skin and/or the thin wire used downstream in the construction of the electromagnets.
+### Output Indicator
 
-A temporary wire-winding jig was constructed that suspended the coil of magnet wire in a way that could be ergonomically unraveled while the electromagnets were wound.
+Using the same solenoid-winding jig and general process as [03002](https://github.com/marian-scientific/reports/tree/Christ/03002%20-%20Low-power%20Electromagnetic%20Visual%20Indicator), 500 turns of 28 AWG magnet wire were wound around a short length of plastic tube. The ends of the wires were sanded to remove the coating and extension wires were soldered to the ends, the joints being protected by heat-shrink tubing.
 
-A small piece of tape was affixed to both ends of the rod in order to prevent any wire wound around the rod from sliding off either end. A strong permanent magnet with a hook (conventionally used for hanging various items) was then stuck to one of the ends of the small steel rod segments, in order to provide a handle by which each rod could be rotated in order to wind the coil around it. 
+When a short length of thin steel wire was placed inside the plastic straw, and 5V at 175mA were applied to the solenoid, the steel wire was successfully drawn in. 
 
-![Coil Winding Rig](resources/coil-winding-rig.jpg)
+video:
 
-Leaving enough lead of magnet wire (2-3") free on both ends, 1000 turns of the 36 AWG magnet wire were wound around each rod, taking care to wind the coil neatly and evenly, such that the diameter was relatively constant along the entire length of the electromagnet.
+[![solenoid](http://i.ytimg.com/vi/aOZ0N7JlEQg/hqdefault.jpg)](https://www.youtube.com/watch?v=aOZ0N7JlEQg)
 
-![Coil](resources/coil.jpg)
+Under 5V and 700mA, it was capable of drawing in a length of 1/8" much heavier steel cylinder.
 
-A small region of the enamel at the end of both leads on each electromagnet was abraded off using the sandpaper. The leads were then connected to jumper wires by solder and each joint was strengthened with heat-shrink tubing. 
+video:
 
-### Test Circuit & Code
-The circuit implemented to test whether or not the prototypical visual indicators would function correctly leveraged a Raspberry Pi Pico and its GPIO pins, which are capable of outputing roughly 15 mA of current at a 3.3V logic level, in line with the design specifications outlined in the [RFP](https://github.com/marian-scientific/proposals/tree/Christ/RFP001%20-%20HOHMO). The circuit itself is trivial. The two electromagnets, each having a resistance of roughly 50 ohms, were wired each in series with 200 ohms of additional resistance, and connected between a GPIO (output) pin and a ground pin of the microcontroller. As such, a current of roughly 13 mA could be actively toggled on/off through either of the electromagnetics, activating their respective magnetic fields. A switch was also connected to another GPIO (input) pin for the purpose of switching between the active electromagnets. 
+[![solenoid, more current](http://i.ytimg.com/vi/GkqKA8dyDBk/hqdefault.jpg)](https://www.youtube.com/watch?v=GkqKA8dyDBk)
 
-![Circuit](resources/circuit.jpg)
+The below frame structure was created using wood, cardboard, and glue. Here is a demonstration of the output indicator being manually triggered.
 
-The code required for this test circuit, to be uploaded to the Pico, is [attached to this report](resources/double-electromagnet-test.c), leveraging the Pico C SDK.
+video:
 
-### Concept A - Electromagnet Compass Visual Indicator
-A small cup was 3D-printed and filled with water. A stick, having a thickness less than the inner diameter of the cup, was sliced into a  1/4" thick wafer. A notch was cut into the wooden disk, and a small length of stainless steel wire was glued into the notch. The wooden disk was then placed into the cup of water. This disk setup acts as compass needle, though one not inclined to reorient to point along Earth's magnetic field lines.
+[![solenoid output indicator](http://i.ytimg.com/vi/EjQzM-X2TaQ/hqdefault.jpg)](https://youtube.com/shorts/EjQzM-X2TaQ)
 
-![Compass Parts](resources/compass_parts.jpg)
+A user interface faceplate was created for concept A, to be described later. It features a switch and a potentiometer clamped into a marked cardboard panel.
 
-The electromagnets were then placed next to the cup, oriented radially, with roughly 60 deg spacing between them. A piece of paper with "0" and "1" written as output indicators was placed opposite the electromagnets.
+![timer assembly 1](resources/indicator_faceplate.jpg)
 
-The microcontroller was turned on, and the switch was flipped multiple times to test the function of the prototype.
+### Concept A - Electronic timer
 
-### Concept B - Electromagnet Pendulum Visual Indicator
-The below frame was constructed. The exact dimensions of the frame structure are not expected to be critical for its proper function. 
+As an investigation of Concept A using a CD4060 binary ripple counter with an RC timer, various data was collected using a digital input pin on a RPI. This data is included in Appendix A.
 
-![Stick Frame](resources/stick_frame.jpg)
+After this concept was downselected, a final circuit was assembled per [this Marian Scientific schematic](https://github.com/marian-scientific/reports/blob/Christ/03005%20-%20Variable%20Time%20Ball%20Drop/resources/03005_circuit_diagram.pdf), a portion of which is reproduced below.
 
-Simply, the frame suspends a magnetic stainless steel nut from two vertical posts by a thin thread, giving it enough clearance to swing freely above whatever frame structure is below it. The frame should also position the two electromagnets in such a way that their magnetic fields, when activated, would draw the steel weight towards them in the most efficient way possible.
+![circuit diagram](resources/circuit_diagram.png)
 
-![Pendulum](resources/pendulum.jpg)
+When Q14 is taken as the output for the CD4060, the alarm is capable of firing after delays between 5 hours and 42 minutes and 11 hours and 24 minutes, values that were determined after tests. If another output pin is used, these delays can be reduced by an associated power of two.
 
-One key detail of this apparatus is that it requires a small piece of tape to be applied to the ends of the electromagnets that are closest to the suspended weight. The critical function of this small piece of tape is described in the Conclusions below.
+### Concept B - Sunlight detector
 
-The microcontroller was turned on, and the switch was flipped multiple times to test the function of the prototype.
+As an investigation of Concept B using a light-dependent resistor, various data was collected using a transistor, an ADC, and digital input pin on a RPI. This data is included in Appendix B.
+
+This LDR was connected to the output indicator as a proof of concept, and the video is shown below. However, this would likely not reflect an accurate passage of time, but it might be capable of letting you know when the sun rises or sets.
+
+video:
+
+[![pulse output](http://i.ytimg.com/vi/p0xjpmv5IzE/hqdefault.jpg)](https://youtube.com/shorts/p0xjpmv5IzE)
+
+### Concept C - Evaporative timer
+
+As an investigation of Concept C using wire leads embedded in paper towels soaked with tap or salt water, various data was collected using a transistor, an ADC, and digital input pin on a RPI. This data is included in Appendix C. This was deemed highly ineffective as a means of accurately tracking the passage of time, though it may be useful for determining soil moisture levels, as conductivity dropped to zero when the towels became completely dry, which is a condition that many plants actually benefit from (wet/dry cycles).
 
 Results & Observations
 ----------------------
-Both prototypes were successful in generating a visual output, albeit a small one. Videos of the prototypes working are linked in the Abstract section.
+After some debugging, the final concept A prototype was highly successful and repeatable in timing a user-set delay and subsequently triggering the output indicator. As a trial, one night I set the time delay such that it would go off between 5:50 and 6:00AM (this is not as simple as setting an alarm clock, because you are setting a delay, not a time, and you are doing so with limited graduations for the input potentiometer). The next morning, the acorn dropped into the cup at 5:54AM. With all of the inaccuracies of the manufacturing, tolerances in the electronic components, and inherent issues with RC circuit timing accuracy, the alarm went off at the appropriate time, and it was able to wake me up, though I am a light sleeper. If I was a heavy sleeper, dropping a heavier ball onto a pie tin, instead of a cardboard cup, would produce a much louder sound.
 
-The compass indicator was significantly slower in its response time, as the needle had to slowly swing back and forth and equilibrate oriented along the active electromagnet. The pendulum indicator was able to render its visual output almost immediately.
+Concept B, leveraging a light-dependent resistor, did not represent an efficient mechanism of quantifying a delay of time, even one closely related to awaking in the morning, like a sunrise. However, this component has many better use cases involving light detection, which is obviously the purpose for which it exists.
 
-Contrarily, the pendulum indicator required a lot of fine tuning of the electromagnet positions relative to the suspended weight, making it significantly more challenging to get working. The compass indicator was very much plug-n-play, and only took a matter of seconds to lay out a working configuration.
+Concept C, leveraging evaporation, was also not an effective time-passage quantification approach, regardless of the electrolyte. Though this may be appropriate for detecting moisture more explicitly, even hobby-grade soil moisture sensors use capacitance, not conductivity. Perhaps this technique will be used in future endeavors at Marian Scientific for purposes of moisture detection.
 
 Conclusions
 -----------
-* Electromagnetism is an effective phenomenon for rendering a visual output with very minimal power and current requirements, requiring a very simple apparatus to visualize the changing magnetic fields.
-* An electromagnet can be easily and quickly fabricated. Their geometries and electronic characteristics can easily be customized, as well as their core material.
-* One ferromagnetic core material that has repeatedly shown to be effective is 416 stainless steel.
-* The crude wire-winding jig depicted and described in this report significantly helped facilitate the construction of the electromagnets.
-* The solder joints connecting the ends of the this 36 AWG magnet wire to the ends of the extension wire / jumper wire, although reinforced with heat-shrink tubing, seem qualitatively susceptible to fatigue-induced failure, although no such failure was experienced. It would be preferable if these magnets were potted in some type of epoxy resin, including the solder joint with a much more robust lead wire, such that only the thicker wire was exposed and capable of bending.
-* Both of these visual indicators leveraged a very small magnetic attractive force. To amplify the effect of this small force, all other counteracting forces needed to be minimized or removed altogether. In the case of the compass indicator, the only force opposing the reorientation of the needle is friction against the water. In the case of the pendulum indicator, only a small component of gravity.
-* The small piece of tape placed on the ends of the electromagnet in the for the pendulum electromagnetic visual indicator served a critical purpose. Normally, when these electromagnets are activated and deactivated, they maintain a small residual magnetic field, that is actually strong enough to keep the suspended weight weakly attached to the non-active electromagnet. Because the strength of the electromagnet decreased with the square of the distance away from it, even a small piece of tape is enough thickness to degrade this residual attraction to the degree necessary to allow an activated opposing electromagnet to pull the weight off the deactivated electromagnet.
+* The 28AWG-wound solenoid seemed able to handle current draws of at least 700mA for at least several seconds at a time, which is apparently way higher than the wire is rated for, though that may be for continued use.
+* 555 timers are easy to configure to generate a pulse of a target width in monostable mode, though they are triggered by a falling edge, which generally requires a signal to be inverted, in applications like these.
+* If user-interface markings are to be made for switches, buttons, or the potentiometer, they should be made before the electronic components are installed, and perhaps they should be printed out neatly on a sheet of paper, as it was quite a challenge to trace precise angles after the potentiometer had already been installed in the cardboard faceplate.
+* Never trust the nominal values of electronic components. Instead, measure the desired quantity of interest (in this case, the time delay) and calibrate accordingly.
+* Electrolysis taking place on conductivity probes, degrading the connection and limiting the application for brief periods of time. Perhaps I need not have constantly probed the resistance, and should have only briefly checked it once every few minutes or so. That would also have saved power.
+* Cloudy days often shaded the light sensor affecting the resistance substantially, limiting the application of the light sensor for fine data collection. However, it still may be useful if the threshold is set very low.
+
+Appendix A
+-----------
+
+Below are selected output pin traces for the CD4060 ripple counter timer with the maximum potentiometer resistance set. The elapsed cycle time was 11 hours, 22 minutes, & 25 seconds for pin Q14. 
+
+![long delay cd4060](resources/long_delay_cd4060.png)
+
+Restarted the data collection with the potentiometer at the minimum setting. The expected time is half the above, and the elapsed time was 5 hours, 42 minutes, & 17 seconds.
+
+![medium delay cd4060](resources/medium_delay_cd4060.png)
+
+
+Appendix B
+-----------
+
+Light sensor data was collected over the course of 3 night/day cycles. The ADC values, and inverted transistor output are plotted below. As their name suggests, these sensors would be especially useful at detecting light.
+
+![light sensor output](resources/light_sensor_output.png)
+
+![light sensor voltage divider](resources/light_sensor_voltage_divider.png)
+
+![light sensor transistor output](resources/light_sensor_transistor_output.png)
+
+
+Appendix C
+-----------
+
+Water evaporation data was collected over the course of 3 days. The ADC values are plotted below. Note that the tap water evaporated significantly faster than the salt water, but both featured the same characteristic taper off at the end of their cycles. That could be potentially useful at determining when a plant is beginning to dry out.
+
+![tap water sensor conductivity](resources/tap_water_sensor_output.png)
+
+![salt water sensor conductivity](resources/salt_water_sensor_output.png)
