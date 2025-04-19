@@ -1,89 +1,87 @@
-# NOT YET COMPLETE. COPY OF OLD REPORT
-
-
-03002 - Low-power Electromagnetic Visual Indicator (LEVI)
-========================
+03005 - Variable-Time Ball Drop (VTBD)
+======================================
 *Matt DiPalma, AMDG*
 
 
 Schedule
 --------
-  * February 19, 2025 - RFP001 posted
-  * February 19, 2025 - proposal submitted
-  * February 22, 2025 - contract awarded
-  * March 9, 2025 - prototypes complete
-  * March 14, 2025 - documentation complete
+  * March 9, 2025 - RFP002 posted
+  * March 15, 2025 - proposal submitted
+  * March 17, 2025 - ontract awarded
+  * March 21, 2025 - source-by date for all prototype raw materials
+  * March 28, 2025 - underlying technology demonstrators due
+  * April 11, 2025 - final prototypes complete
+  * April 18, 2025 - documentation complete
 
 Abstract
 ---------
-As part of an ongoing effort to design and fabricate a human-observable output for a low-power GPIO pin state, this project investigates the possibility of using an easily-manufactured electromagnet to generate two visually-detectable outputs: the deflection of a crude compass needle and the motion of a suspended mass. The project was a success, and various data and observations were collected.
+This project investigates various mechanisms that show potential for the purpose of estimating the passage of time with varying degrees of accuracy and home-producibility: sunlight detection, water evaporation, and an RC-timer based electric circuit. Though data was collected for all of the phenomena, the RC-timer based circuit had a timing accuracy that far exceeded the others. Therefore, a circuit was designed, built, and tested that leveraged a RC timer and a binary ripple counter to implement a simple alarm. The output indicator for this alarm was also extremely simple: a hand-wound solenoid that, when activated, drew in a steel pin, allowing an acorn to fall into a cup, producing an audible sound. The demonstration prototype is capable of creating alarm delays of between 5.5 and 11.5 hours, which is appropriate for the purpose of an alarm clock.
 
-Click for video of Concept A:
+Click for video of Variable-Time Ball Drop alarm:
 
-[![DIY GPIO Electromagnet and Compass](http://i.ytimg.com/vi/tD9r4Nutd2k/hqdefault.jpg)](https://www.youtube.com/watch?v=tD9r4Nutd2k )
-
-Click for video of Concept B:
-
-[![DIY GPIO Electromagnet and Pendulum](http://i.ytimg.com/vi/AwjTqBJ5iOk/hqdefault.jpg)](https://www.youtube.com/watch?v=AwjTqBJ5iOk)
+[![timer final](http://i.ytimg.com/vi/wb-KzfldAP8/hqdefault.jpg)](https://youtube.com/shorts/wb-KzfldAP8)
 
 Objective
 ---------
-The maximum GPIO pin source current limitation of 10-20mA on modern microcontrollers is very limiting as far as homemade, human-observable outputs are concerned. Without the ability to leverage common, cheap, mass-produced electronic devices like motors, buzzers, or LEDs, the number of candidate output devices begins to dwindle. Many promising technologies exist that leverage capacitance to drive motors, emit light via electroluminescence, or induce microscopic strains via piezoelectrics may have very low power net requirements, but are understood to have requisite voltages that exceed microcontroller logic levels by factors of 100+. Without the ability to use semiconductor devices to amplify voltage in a conventional way, these output technologies are rendered impossible (although a primitive reed relay may have been feasible, and a variant of this was included as an unpursued third concept in the original [LEVI](https://github.com/marian-scientific/proposals/tree/Christ/RFP001%20-%20HOHMO/submitted%20proposals/LEVI) proposal).
+There are many objectives of this investigation. The primary objective is to prototype minimal implementations of a timer and integrate them alongside a simple output indicator to form a primitive alarm.
 
-Electromagnets are one technology that can effectively leverage limited voltage and current levels because their induced magnetic fields scale with Ampere-turns, that is, the product of the current running through the wire and the number of turns. With a suitably high number of turns, a stronger field (albeit quite weak in absolute terms) can indeed be generated. And although most humans lack the ability to directly observe magnetic fields with their own senses, it is possible to use the magnetic field to attract or reorient a lightweight magnetic object which, in turn, can be visually detected by a human observer. A weak homemade electromagnet was experimentally validated in the [13001](https://github.com/marian-scientific/reports/tree/Christ/13001%20-%20GPIO%20Electromagnet) investigation at Marian Scientific.
+All of the designs considered for this investigation leveraged electrical components, though some required a greater number of components of higher complexity. To be clear, primitive versions of components like resistors, capacitors, and inductors can, if absolutely necessary, be produced in the home workshop, whereas components that leverage semiconductors are not reasonable to self-source. The objective of limiting the number and complexity of electrical components is especially beneficial to limit dependency on a wide and often import-heavy supply chain.
 
-This prototype effort was also an opportunity for the organization to pursue usage of 3D-printed and naturally-sourced, eco-friendly components, where possible, as alternatives to metallic or conventional wooden components with complex and involved supply chains, in accordance with [MP07](https://github.com/marian-scientific/wiki/wiki/MP07-%E2%80%90-Vertical-Integration).
+This project is also a foray into the development of a device with a degree of human interaction, as the device will contain a set of inputs that set the alarm time delay. This is the first project at Marian Scientific with such a criterion.
+
+This investigation is also an opportunity to use various microcontroller devices for data collection, something that has not been pursued at Marian Scientific. The data collected in the course of this project spans a wide range of topics, from light-dependent resistor (LDR) voltage output through the day/night cycle, evaporation rates & conductivities for various solutions, and thresholds for various transistor devices.
+
+Another goal of this project is to use more commonplace materials such as wood, cardboard, and otherwise naturally harvested materials, wherever possible, in accordance with [MP07](https://github.com/marian-scientific/wiki/wiki/MP07-%E2%80%90-Vertical-Integration). For example, as will be later described, a simple acorn was used in place of a manufactured ball, limiting a dependency and making the prototype more eco-friendly and cheaper.
+
+The prototype also continued to pursue self-sourced electromagnets for the purposes of output indication. This parallels the efforts of [13001](https://github.com/marian-scientific/reports/tree/Christ/13001%20-%20GPIO%20Electromagnet) and [03002](https://github.com/marian-scientific/reports/tree/Christ/03002%20-%20Low-power%20Electromagnetic%20Visual%20Indicator) at Marian Scientific.
+
+Lastly, this project was an opportunity to pilot the new reporting format at Marian Scientific (see [PROGRESS_TRACKER.md](https://github.com/marian-scientific/reports/blob/Christ/03005%20-%20Variable%20Time%20Ball%20Drop/PROGRESS_TRACKER.md)), which involved detailing summaries of daily tasks with photo, video, and other evidence, alongside a running tally of labor hours spent on the project. This serves many purposes. First, it serves as an excellent journal of tasks completed, which makes compiling this final report extremely straightforward, while being a great record of tasks completely and observations made, which can be referenced in the future. Second, it enables future project labor estimates to be more accurately made by serving as a basis of comparison. Finally, it allows for a formal archive of all endeavors relative to the project scope. As such, this report does not need to exhaustively regurgitate all steps of the investigation and design process, as that list already exists in the accompanying progress tracker document. To this end, this report will focus primarly on the downselected prototype, with only a brief summary of the investigations made on the alternate configurations.
 
 Parts List
 ----------
-The materials required for the construction of each 03002-001 electromagnet are:
-* 36 AWG enameled copper "magnet" wire (McMaster # 7588K27)
-* 3/8"-diameter stainless steel rod (alloy 416) (McMaster # 89095K56)
+The materials required for the construction of the solenoid are:
+* 28 AWG enameled copper "magnet" wire
+* 2.5" plastic tube (repurposed thick drinking straw)
 * hot glue
 * 600-grit sandpaper
-* jumper cables (additional extension wire optional)
+* solid core wire
 * heat-shrink tubing
 
-The materials used in the construction of the compass for Concept A are:
+The materials required for the construction of the output indicator are:
+* 10mm square wood rod (dimensions unimportant)
+* 3/4" wood project panel (dimensions unimportant)
+* cardboard (dimensions unimportant)
+* plastic tube (same diameter as required above)
+* hot glue / PVA glue
 * 0.032"-diameter stainless steel wire (alloy 430) (McMaster # 	89065K81)
-* approx. 7/8"-diameter wooden stick
-* PLA for 3D printing 1x cup
-* water
-* hot glue
+* acorn
 
-The OpenSCAD code to generate the cup for the compass:
-```
-$fn=100;
-OD=32;
-wall_thickness=1;
-base_thickness=5;
-height=15;
+The materials used in the construction of the RC timer circuit:
+* resistors: 100, 1e5, 1e6, & 2.2e6 ohms
+* capacitors: 2x 1e-5, 1e-8 farads
+* switch
+* potentiometer: 0-1e6 ohms
+* LED (debugging only)
+* CD4060 ripple counter IC
+* CD40106 inverter IC (or NOT gate)
+* 555 timer IC
+* RFP30N06LE N-channel MOSFET
+* solid core wire
+* 5V power supply
 
-difference(){
-    cylinder(h=height,d=OD);
-    translate([0,0,base_thickness]){cylinder(h=2*height,d=OD-2*wall_thickness);}
-    };
-```
+The materials used in the construction of test setup for the unpursued Concept B:
+* GM5539 light-dependent resistor
+* MCP3008 ADC
+* RPI 4 or Zero for data collection
+* misc. electronic components
 
-The materials used in the construction of the pendulum apparatus for Concept B are:
-* thread
-* misc. stainless steel nut
-* misc. wooden sticks for the frame
-* PLA for 3D printing 2x electromagnet support chassis
-* wood glue
-* nails/glue for positioning electromagnet support chassis
-
-The OpenSCAD code to generate the electromagnet support chassis:
-```
-$fn=100;
-
-difference(){
-    cube([30,10,10],center=true);
-    translate([0,0,10]) {rotate([0,90,0]) {cylinder(h=50,d=22,center=true);}};
-    translate([10,0,0]){cylinder(h=50,d=1,center=true);}
-    translate([-10,0,0]){cylinder(h=50,d=1,center=true);}
-    };
-```
+The materials used in the construction of test setup for the unpursued Concept C:
+* small dishes
+* paper towel
+* water (tap and salt)
+* MCP3008 ADC
+* RPI 4 or Zero for data collection
+* misc. electronic components
 
 Design & Procedure
 ------------------

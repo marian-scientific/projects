@@ -202,7 +202,7 @@ video:
 
 video:
 
-
+[![timer final](http://i.ytimg.com/vi/wb-KzfldAP8/hqdefault.jpg)](https://youtube.com/shorts/wb-KzfldAP8)
 
 ### April 15, 2025: 0 hours (35/60)
 * Last night's attempt failed because I accidentally left the reset pin connected to the shortest time delay pulse, preventing more than a single pulse from ever getting counted before the ripple counter reset. Trying again tonight.
