@@ -6,6 +6,8 @@ This single-piece 3-D printable nozzle features an internal thread compatible wi
 
 [FreeCAD file](resources/watering_can_nozzle.FCStd)
 
+*Matt DiPalma, AMDG*
+
 ![view 1](resources/IMG_20250517_231229313.jpg)
 
 ![view 2](resources/IMG_20250517_231236738.jpg)
