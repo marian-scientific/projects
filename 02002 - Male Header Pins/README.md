@@ -4,7 +4,7 @@ These small header pins consist of 2x 3D-printed halves with short lengths of 22
 
 [3d model to print](resources/male_header-Body001.3mf)
 
-[FreeCAD file](resources/male_header.FCStd
+[FreeCAD file](resources/male_header.FCStd)
 
 *Matt DiPalma, AMDG*
 
