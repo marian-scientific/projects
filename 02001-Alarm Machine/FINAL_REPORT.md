@@ -186,8 +186,13 @@ Unfinished design of the Rotary Dial Implementation:
 
 These two methods were the inspiration of the Bus mechanic. Each stage would have its own bus (Hours, Minutes, and Seconds stage.) The respective Buses interface with the data inputs of each 74HC192.
 
-The Bus on the Circuit Schematic:
+The Bus on the Circuit:
 ![Bus](resources/Buses_pic.JPG)
+
+The Bus on the Circuit Schematic:
+![Bus Schematic](resources/Bus_Alarm_Machine_Schematic01.PNG)
+
+
 
 An imperative operation for a working bus implementation requires devices that have a tri-state feature. A Logic gate can be set High or set Low. If a logic gate’s output is set High and that output is connected to another output of a logic gate, it would be disastrous if that output is Low. There would be a short circuit. So the Electrical Team decided to use tri-state buffers to interface with the Bus. When sets of data are not to be loaded onto the bus, the buffers are configured to be in the Hi-Z (high impedance) state. A High or a Low can connect to Hi-Z without worry of a short circuit. 
 
