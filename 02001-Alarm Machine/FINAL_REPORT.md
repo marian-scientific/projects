@@ -240,7 +240,37 @@ For a buzzer or an actual alarm, this signal may be connected to a speaker circu
 Results
 -------
 
-How to Operate the Prototype? There are two switches and 6 push buttons. (write down the rest. I forgot to finish this part lol)
+How to Operate the Prototype? There are two switches and 6 push buttons.
+
+The power to the clock must be turned on first
+
+The power to the rest of the circuit must be turned on second
+
+There are two switches:
+
+the set reset switch and the load unload switch
+
+
+
+The 1st switch is the set reset switch: set (off), reset (on)
+
+The 2nd switch is the load unload switch: load (off), unload (on)
+
+After the power is on, the first switch must be placed in the reset position (on) to turn off the blue LED
+
+The second switch is placed in the load (off) position. the load position allows the user to push button in a time
+
+The hours, minutes, and seconds can all be programmed into the alarm machine when the second switch is in the load position.
+
+After setting a time, the user may engage the countdown.
+
+To do this:
+
+Set the second switch to unload (on) position
+
+And then set the first switch to the set (off) position. (if this is not done, the alarm will never go off and the countdown will overflow)
+
+
 
 A future stream will be conducted to record the accuracy and be placed in a table here.
 
