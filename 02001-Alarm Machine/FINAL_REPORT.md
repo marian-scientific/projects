@@ -240,7 +240,9 @@ For a buzzer or an actual alarm, this signal may be connected to a speaker circu
 Results
 -------
 
-How to Operate the Prototype? There are two switches and 6 push buttons.
+### How to Operate the Prototype? 
+
+There are two switches and 6 push buttons.
 
 The power to the clock must be turned on first
 
@@ -271,6 +273,9 @@ Set the second switch to unload (on) position
 And then set the first switch to the set (off) position. (if this is not done, the alarm will never go off and the countdown will overflow)
 
 
+### The Accuracy of the Clock Circuit
+
+A CD4060 counter is in a certain configuration that outputs a usable clock signal that is, in theory, has a period close to 1 second. The CD4060 has an oscillator which puts in a signal into many flipflops in series [1]. 
 
 A future stream will be conducted to record the accuracy and be placed in a table here.
 
@@ -352,5 +357,9 @@ For future proposals and projects, there will be more caution and awareness of t
 The completion of this project has provided a gateway for the Electrical Innovation team to research and incorporate computer architecture (from a thorough understanding). Future topics from then on can  facilitate the incorporation of topics in computer networks and communication systems engineering.
 
 
+References
+----------
+
+  [1] Texas Instruments, "CMOS 14-Stage Ripple-Carry Binary Counter/Divider and Oscillator". CD4060B Types datasheet, [Revised October 2003]
 
 
