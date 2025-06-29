@@ -275,11 +275,24 @@ And then set the first switch to the set (off) position. (if this is not done, t
 
 ### The Accuracy of the Clock Circuit
 
-A CD4060 counter is in a certain configuration that outputs a usable clock signal that is, in theory, has a period close to 1 second. The CD4060 has an oscillator which puts in a signal into many flipflops in series [1]. 
+A CD4060 counter is in a certain configuration that outputs a usable clock signal that is, in theory, has a period close to 1 second. The CD4060 has an oscillator which puts in a signal into many flipflops in series [1]. There is a period T generated from an RC circuit from the Schematic. 
 
-A future stream will be conducted to record the accuracy and be placed in a table here.
+Here's the Priliminary Clock circuit again:
+![Results Clock Circuit](resources/Preliminary_Clock_Circuit_Schematic.PNG)
 
-These innaccuracies are due to the rudiment clock signal that was used for testing purposes. Ultimately the circuit works. 
+The period is T = 2.2(R)(C) (from [1]) and this is configured in the schematic from the picture above. The output from pin 7 is Q4. Q4 is an intermediary signal output from the cascaded flipflops. This is relevant because the period T is too fast. The Alarm needs a signal with a period of 1 second. 
+
+T = 2.2(RC) = 2.2(100,000 Ohms)(0.3 uF) = 0.066 seconds
+
+So the frequency is about 151 Hz. We need 1 Hz. Q4 goes high after 8 clock cycles [2]. But remember that during the period, the signal is only High half the time. So when we do the following calculation:
+
+T(2^3) = 0.528 seconds
+
+It will take this much time for Q4 to go High, therefore the New Period is: T_new = 1.056 seconds
+
+This is close to 1 Second but it's not accurate over a long time. When doing a 1 minute countdown, it took the Prototype 1 minute and 10.93 seconds to finish. That's more than a 10% error. One may ask why didn't it take 1 minute and 5.6 seconds? The capacitors and Resistor are approximate values. The 100K Ohm resistors used are rated for a 20% tolerance. So It's expected to have issues. 
+
+
 
 
 Observations and Discussion
@@ -361,5 +374,7 @@ References
 ----------
 
   [1] Texas Instruments, "CMOS 14-Stage Ripple-Carry Binary Counter/Divider and Oscillator". CD4060B Types datasheet, [Revised October 2003]
+
+  [2] Oyvind Nydal Dahl and Build Electronic Circuits (2021), *CD4060 – A Binary Counter With a Built-In Oscillator* [Online]. Available: https://www.build-electronic-circuits.com/4000-series-integrated-circuits/ic-4060/
 
 
