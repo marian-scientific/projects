@@ -26,13 +26,13 @@ Design and Procedure
 --------------------
 ### Setup for the Build
 
-First thing to note is that during initial testing, we did not have different power supplys. The ICs require a constant supply of 5 volts within the tolerance range (+,- 0.25V). When we introduced the seven segment into the circuit, the diodes have a necessary voltage drop for operation (around 0.7 volts). With six seven segment displays running simultaneously, the current draw is signification enough to drop overall voltage output from the power source.
+Regarding the experimental setup, the first thing to note is that during initial testing, the single power supply rated for XXX W was found to be insufficient to drive all the components. The ICs require a constant supply of 5 volts within the tolerance range (+,- 0.25V). When we introduced the seven segment into the circuit, the diodes have a necessary voltage drop for operation (around 0.7 volts). With six seven segment displays running simultaneously, the current draw is signification enough to drop overall voltage output from the power source. The estimated power draw across all the components is XXX W.
 
 We can hypothesize that the current draw was so great enough that the source was reaching its power limit. 
 
-Similar issue was encountered with the 03001. During construction of the motor prototype circuit, LEDs were used for testing and debugging. There was unexpected operation in the construction process that was resolved when the LEDs were removed from the circuit. It was due to the voltage drop across the LEDs. 
+A similar issue was encountered with the 03001. During construction of the motor prototype circuit, LEDs were used for testing and debugging. There was unexpected operation in the construction process that was resolved when the LEDs were removed from the circuit. It was due to the voltage drop across the LEDs. 
 
-The solution to this predicament was simple, add another power source to power the ICs separate from the segment displays. In addition, 100nF capacitors should be placed on the power rails every 2” or so. These capacitors act like bypass capacitors for the ICs. The picture shows this.
+The solution to this predicament was simple, add another power source to power the ICs separate from the segment displays. In addition, 100nF capacitors should be placed on the power rails every 2” or so. These capacitors, shown in the figure below, act like bypass capacitors for the ICs.
 
 Bypass Capacitors
 ![Bypass Capacitors 01](resources/Bypass_Caps_01_pic.JPG)
@@ -40,32 +40,28 @@ Bypass Capacitors
 More Bypass Capacitors
 ![Bypass Capacitors 02](resources/Bypass_Caps_02_pic.JPG)
 
-In the Schematic, bypass capacitors are in parallel to all the ICs. The bypass capacitors are used to help regulate the power to the ICs, to prevent spikes in voltage or noise to interfere with operation. While constructing the circuit, if the bypass capacitors were absent, the physical construction of the breadboards allow for significant voltage drop. Seemingly the further away from the source, the lower the voltage would become. We have observed a voltage as low as 4.5V.
+In the schematic, bypass capacitors are in parallel to all the ICs. The bypass capacitors are used to help regulate the power to the ICs to prevent spikes in voltage or noise from interfering with operation. While constructing the circuit, if the bypass capacitors were absent, the physical construction of the breadboards allow for significant voltage drop. Seemingly the further away from the source, the lower the voltage would become. We have observed a voltage as low as 4.5V.
 
 ### The Envisioned User Interface
 
-The project objective was to solve for the Minimum Complexity Alarm proposal by Marian Scientific. What’s imperative is designing a device capable of relative accuracy for keeping time and for an end user to be able to select a time. 
+The project objective was to solve for the Minimum Complexity Alarm proposal by Marian Scientific. For this application, it is imperative that the device be capable of relative accuracy for keeping time and for an end user to be able to select a time. 
 
-The approach of the design was to be user friendly and simple. The Electrical team came up with a solution where the user only needs to enter a time via a push button. The Alarm would keep track of hours, minutes, and seconds. All of which are programmable by the user via a push button. 
+The approach of the design was to be user friendly and simple. The Electrical Innovations team came up with a solution where the user only needs to enter a time via a push button. The Alarm would keep track of hours, minutes, and seconds, all of which are programmable by the user via push buttons. 
 
-The choice of using 7400 series and 4000 series TTL was to abstain from using complex machines such as microcontrollers in favor of simple mechanism. 
+The choice of using 7400 series and 4000 series TTL was to abstain from using complex black-box components such as microcontrollers in favor of more simple components. 
 
+### Pros 
+-One advantage to this approach is that we have simple mechanism that satisfies the requirements of the proposal. 
 
-Pros and Cons (Challenges)
-
-Pro is that we have simple mechanism that satisfies the requirements of the proposal. 
-
-Cons (Challenges)
-a microcontroller would be faster to design, a simple body of code can do the trick. But a microntroller has a lot of functionality unutilized for the Alarm-Machine. The simplicity element would be absent.
-
-The team would require weeks of development of knowledge of Latches, Flipflips, registers, shift registers, counters, finite state machines, and combinational logic synthesis techniques. 
-
-Developing a circuit would require a lot of time to construct and debug. 
+### Cons (Challenges)
+-A microcontroller would be faster to design and debug: a simple body of code can do the trick. But a microntroller has a lot of functionality un-utilized for the Alarm-Machine. There is a lot of wasted potential. The simplicity element would be absent.
+-The team would require weeks of development of knowledge of latches, flip-flops, registers, shift registers, counters, finite state machines, and combinational logic synthesis techniques. 
+-Developing a circuit would require a lot of time to construct and debug. 
 
 
-The Idea of operation is that the user programs the time into the machine and then starts the countdown to zero.
+The idea of operation is that the user programs the time into the machine and then starts the countdown to zero.
 
-Alarm Machine with a programmed Time:
+Alarm Machine with a programmed time:
 ![Programmed Time](resources/Programmed_Time_01_pic.JPG)
 
 ### Implementation
@@ -83,7 +79,6 @@ Alternative Counters
 ### Logisim Evolution construction and schematic
 
 Logisim is a free digital circuit construction and editing software. Logicworks 5 is preferable but funding for a license was unavailable and logisim was serviceble. The Advantage of using Logisim (or Logicworks 5) is to test out equipment that was not available to the Electrical Innovation team. The Alternative counters were considered but not ruled out until thorough testing and small construction was performed in Logisim. 
-
 
 To organize the design presentation, an approach that’s similar to the construction of the prototype will be presented. 
 
@@ -191,7 +186,6 @@ The Bus on the Circuit:
 
 The Bus on the Circuit Schematic:
 ![Bus Schematic](resources/Bus_Alarm_Machine_Schematic01.PNG)
-
 
 
 An imperative operation for a working bus implementation requires devices that have a tri-state feature. A Logic gate can be set High or set Low. If a logic gate’s output is set High and that output is connected to another output of a logic gate, it would be disastrous if that output is Low. There would be a short circuit. So the Electrical Team decided to use tri-state buffers to interface with the Bus. When sets of data are not to be loaded onto the bus, the buffers are configured to be in the Hi-Z (high impedance) state. A High or a Low can connect to Hi-Z without worry of a short circuit. 
@@ -376,5 +370,3 @@ References
   [1] Texas Instruments, "CMOS 14-Stage Ripple-Carry Binary Counter/Divider and Oscillator". CD4060B Types datasheet, [Revised October 2003]
 
   [2] Oyvind Nydal Dahl and Build Electronic Circuits (2021), *CD4060 – A Binary Counter With a Built-In Oscillator* [Online]. Available: https://www.build-electronic-circuits.com/4000-series-integrated-circuits/ic-4060/
-
-
