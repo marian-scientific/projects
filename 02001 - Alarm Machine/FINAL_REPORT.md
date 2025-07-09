@@ -18,7 +18,7 @@ Original Schedule
 
 Abstract
 --------
-To be later posted
+To construct a mechanism of memory tracking counters to be programmed to countdown from a user input time. This project serves to investigate the capabilities of 7400 and 4000 series TTL to form the basis for further development of computer architecture knowledge. A protoype capable of counting down from a programmed time was successful. A series of counters were used to keep track of push button inputs from a user. This data was then transfered to counters that interface with seven segment displays via Buses. The research and development of the Bus mechanism served to implement a possible functionality that was to load in pre programmed time. 
 
 
 
