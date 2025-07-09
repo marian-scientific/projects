@@ -26,7 +26,8 @@ Design and Procedure
 --------------------
 ### Setup for the Build
 
-Regarding the experimental setup, the first thing to note is that during initial testing, the single power supply rated for XXX W was found to be insufficient to drive all the components. The ICs require a constant supply of 5 volts within the tolerance range (+,- 0.25V). When we introduced the seven segment into the circuit, the diodes have a necessary voltage drop for operation (around 0.7 volts). With six seven segment displays running simultaneously, the current draw is signification enough to drop overall voltage output from the power source. The estimated power draw across all the components is XXX W.
+Regarding the experimental setup, the first thing to note is that during initial testing, the single power supply distributing (4.4V)(170mA) = 0.748 W 
+(when wired up) was found to be insufficient to drive all the components. The ICs require a constant supply of 5 volts within the tolerance range (+,- 0.25V). When we introduced the seven segment into the circuit, the diodes have a necessary voltage drop for operation (around 0.7 volts). With six seven segment displays running simultaneously, the current draw is signification enough to drop overall voltage output from the power source. The second power supply output (4.95V)(480mA) = 2.376 W. The estimated power draw across all the components is 3.124 W.
 
 We can hypothesize that the current draw was so great enough that the source was reaching its power limit. 
 
