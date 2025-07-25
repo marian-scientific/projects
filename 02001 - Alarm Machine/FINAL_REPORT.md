@@ -371,3 +371,15 @@ References
   [1] Texas Instruments, "CMOS 14-Stage Ripple-Carry Binary Counter/Divider and Oscillator". CD4060B Types datasheet, [Revised October 2003]
 
   [2] Oyvind Nydal Dahl and Build Electronic Circuits (2021), *CD4060 – A Binary Counter With a Built-In Oscillator* [Online]. Available: https://www.build-electronic-circuits.com/4000-series-integrated-circuits/ic-4060/
+
+  [3] Frugha and Autodesk Instructables (2021), *Common IC Breadboard Clock* [Online]. Available: https://www.instructables.com/Common-IC-Breadboard-Clock/
+
+  [4] Pankaj Khhatri and Circuit Digest (2022, Jan.), *What is Switch Bouncing and How to prevent it using Debounce Circuit* [Online]. Available: https://circuitdigest.com/electronic-circuits/what-is-switch-bouncing-and-how-to-prevent-it-using-debounce-circuit
+
+  [5] Stella Brinkley and Ovaga (2023, Oct. 27), *IC 74192 UP/Down Counter Datasheet PDF, Circuit, Pin Diagram* [Online]. Available: https://www.ovaga.com/blog/package/ic-74192-up-down-counter-datasheet-pdf-circuit-pin-diagram?srsltid=AfmBOoq7wozUYGNwZ3og5V0RkFFMbDR5Sz6WlTIkkOLgWXrhyqaRYRbR
+
+  [6] Mark Dominic Boquio *74192 down counter*. (2015, Nov. 5). Accessed: 7/25/2025. [Online Video]. Available: https://www.youtube.com/watch?v=nOUG5LJCup4
+
+  [7] lonesoulsurfer and Autodesk Instructables (2023), *CMOS Counter Clock* [Online]. Available: https://www.instructables.com/CMOS-Counter-Clock/
+
+  [8] Oyvind Nydal Dahl and Build Electronic Circuits (2023), *7400 Series Guide: 74HC04/74LS04 (NOT gates)* [Online]. Available: https://www.build-electronic-circuits.com/7400-series-integrated-circuits/74hc04-74ls04/
