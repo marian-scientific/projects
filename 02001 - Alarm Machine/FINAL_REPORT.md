@@ -383,3 +383,14 @@ References
   [7] lonesoulsurfer and Autodesk Instructables (2023), *CMOS Counter Clock* [Online]. Available: https://www.instructables.com/CMOS-Counter-Clock/
 
   [8] Oyvind Nydal Dahl and Build Electronic Circuits (2023), *7400 Series Guide: 74HC04/74LS04 (NOT gates)* [Online]. Available: https://www.build-electronic-circuits.com/7400-series-integrated-circuits/74hc04-74ls04/
+
+  [9] Ryan (https://electronics.stackexchange.com/users/104046/ryan), BCD to 7 Segment is producing too little voltage, URL (version: 2016-03-18): https://electronics.stackexchange.com/q/223459
+
+  [10] Diligent, *Debouncing via RC Filter* [Online]. Available: https://digilent.com/reference/learn/microprocessor/tutorials/debouncing-via-rc-filter/start?srsltid=AfmBOop6arpifXFmrBKY8GxpmC6PKLlTgNT8bZd1dLqmka1hRHhbf4KP
+
+  [11] codebender_cc and Autodesk Instructables (2015), *How to Use a Buzzer (or Piezo Speaker) - Arduino Tutorial* [Online]. Available: https://www.instructables.com/How-to-use-a-Buzzer-Arduino-Tutorial/
+
+  [12] Eg Projects and Engineers Garage (2019, June 14), *Digital alarm clock with 8051(89c51) microcontroller* [Online]. Available: https://www.engineersgarage.com/digital-alarm-with-8051-microcontroller/
+
+  [13] Internation *Introduction to Finite State Machine Theory*. (2021, Nov. 18). Accessed: 7/25/2025. [Online Video]. Available: https://www.youtube.com/watch?v=05zp5vbYXSQ&t=1s
+  
