@@ -27,4 +27,25 @@
 ### March 28, 2025: 2 hours (10/100)
 * Continuing Combinational Logic II studying and taking notes on methods to create multiplexers from other multiplexers and Demultiplexers
 
-### March 31, 2025: 1 hour (11/100)
+### March 31, 2025: 5 hourd (15/100)
+* Wrapping up Multiplexers (2 hours) from source: (https://www.youtube.com/watch?v=Rvi-QuAB3Sc&list=PLlutgI5N-PzsYmgor4P9DWTLDBOEgwdSL&index=19)
+* Starting on Latches from Source (https://www.youtube.com/watch?v=sGquGJuWrNw&list=PLlutgI5N-PzsYmgor4P9DWTLDBOEgwdSL&index=18)
+
+### April 1, 2025: 5.5 hours (20.5/100)
+* Studying Multiplexer synthesis
+* Continuing Dr Hameed's Video Lecture on youtube
+
+### April 2, 2025: 6 hours (26.5/100)
+* Continued Studying Latches Specifically SR Latches
+
+### April 3, 2025: 3 houra (29.5/100)
+* Started FlipFlops (1 hour) from Source: (https://www.youtube.com/watch?v=VEevESZHGO4&list=PLlutgI5N-PzsYmgor4P9DWTLDBOEgwdSL&index=21)
+* Did a 2 hour Stream on Flipflops
+
+### April 4, 2025: 5 hours (34.5/100)
+* Continued watching the Video lecture on Flipflops and took notes. from source: (https://www.youtube.com/watch?v=9qEJCTMcOVQ&list=PLlutgI5N-PzsYmgor4P9DWTLDBOEgwdSL&index=22)
+
+### April 5, 2025: 1.5 hours (36/100)
+* Finished up on the Flipflop series of videos
+
+### April 6, 2025: 
