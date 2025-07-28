@@ -110,3 +110,9 @@ I had a document with details of the progress that was not recorded directly to 
 
 From this point on there was negligence to updating the progress tracker document. This occured around the time where building parts of the circuit showed an insufficent design. The issue here was that I didn't know how to daisy chain 74192s in the countdown configuration. There is little documentation that google finds on this subject. 
 
+Eventually this matter was resolved but there were other issues that came up during construction of the circuit. This definitely slowed down progress and at this time, I realized I was way in over my head about how much work this project entailed. Part of the skill of a good engineer is to ascertain the time for project. And I was in sufficient of this. Before any construction, I was already 20 hours over the limit. And I anticipated the design in Logisim was most of the hard work. It wasn't.
+
+From April until the middle of May was the construction of the circuit, which probably was about 50+ hours of work. And this included figuring out a new design and testing it. And ordering more parts. 
+
+After that what took more time was learning KiCad and Creating the circuit in KiCad. This was done by the end of May and is estimated to take 25+ hours. So I estimate this project took at least 195 hours to do. 
+
