@@ -1,5 +1,7 @@
 # 02001 - Progress tracker
 
+I had a document with details of the progress that was not recorded directly to the repository.
+
 ### March 9, 2025:
 * [RFP](https://github.com/marian-scientific/proposals/tree/Christ/RFP002%20-%20MCA) announced.
 
@@ -77,6 +79,34 @@
 ### April 13, 2025: 1 hour (65.5/100)
 * Started the circuit design
 
-### April 14, 2025: 
+### April 14, 2025: 3 horus (68.5/100)
+* 2 hour of circuit design
+* 1 hours compiling a parts list
 
+### April 15, 2025: 6 hours (74.5/100)
+* 2.5 hours on parts generation and circuit designing
+* 3.5 hours on finite state machine designing
+
+### April 16, 2025: 5.5 hours (80/100)
+* 1 hour on circuit design, I added a register to count in conjunction andthe buzzer will ring
+* 3 hours compiling the parts list
+* 1.5 hours finding the parts and buying them on mouser and amazon
+
+### April 18, 2025: 7 hours (87/100)
+* Circuit design, this is primarily finding multiple working designs within Logisim
+
+### April 19, 2025: 8 hours (95/100)
+* Continued the circuit design for 8 hours at least
+
+### April 20, 2025: 8 hours (103/100)
+* Continued the Circuit design. There's a lot of experimenting and research involved to decide which path of design to take. I didn't want to spend a lot of time on a design that would lead to a dead end.
+
+### April 21, 2025: 13 hours (116/100)
+* Spend a long time finishing up a workable circuit design that ultimately couldn't reproduce the expected results shown in Logism. Real hardware couldn't do it.
+
+### April 22, 2025: 4 hours (120/100)
+* 2 hours on circuit designing
+* 2 hours on ordering parts for the circuit
+
+From this point on there was negligence to updating the progress tracker document. This occured around the time where building parts of the circuit showed an insufficent design. The issue here was that I didn't know how to daisy chain 74192s in the countdown configuration. There is little documentation that google finds on this subject. 
 
