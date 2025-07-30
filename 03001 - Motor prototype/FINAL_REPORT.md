@@ -2,7 +2,7 @@
 =====================
 *Anthony Remark, AMDG*
 
-![03001picture](resources/RMK_3013.JPG)
+![03001picture](resources/RMK_3013cropped.JPG)
 
 Original Schedule
 -----------------
@@ -35,5 +35,59 @@ Place a pic here of the parts
 ### Mechanical Parts List
 The following structural components exceed the necessary quantities to construct the present motor design.
 
+1. M3 - 0.50 x 16 (12 count) - $2.48
+2. M3 - 0.50 Hex Nuts (20 count) - $2.28
+3. 3mm Flat Washers (25 count) - $2.28
+4. #6-32 x 1/2” with Nuts (Flat Phillips) (14 count) - $1.48
+5. #6 x 5/8 (Flat Phillips) (18 count) - $1.48
+6. 1/2” - 6 - 2 Yellow Pine Board - $4.00
+7. 3M Pro Grade Precision 80-grit Sand Paper - $6.68
+8. 1/2” x 1-1/8 Radial Bearing (2 count) - $9.18
+9. 1/2” x 36 Round Rod Zinc Plated - $9.49
+10. 4 pack Corner Iron - $2.99
 
+Total: - $42.34
+
+### Electrical Parts List
+The following electrical components exceed the necessary quantities to construct the present motor design. Several of the required components were already in department inventory.
+
+1. 19 x 12mm Electromagnetic Copper coils with 27 AWG wire, 4Ω , 2.32 mH (10 count) - $18.90
+2. SR560 Schottky Barrier Rectifier (30 count) - $6.99
+3. L7805CV (10 count) with 104 & 334 Capacitors, 470 Ω 1/4W Resistor - $6.99
+4. 1000uF 50V 13x25mm Electrolytic Capacitor (10 count) - $8.99
+5. 20Pcs A3144 3144 Hall Effect Sensor - $6.99
+6. 20 x 3mm round Neodymium Magnets - $18.98
+7. MJE3055TJP (4 count) from inventory
+8. Single 0.1 uF Capacitor from inventory
+9. Breadboard from inventory
+10. Assortment of jumpers wires from inventory
+
+Total: - $67.84
+
+
+Design and Procedure
+--------------------
+All of Friedrichs’ [1] designs presume some degree of familiarity with standard manufacturing processes. In a partnership with the Mechanical team at Marian Scientific, it was determined that a vertical shaft mounted on a stationary base could act as the stator itself. Without access to the requisite manufacturing facilities, this choice avoided the more intricate and complex design presented by Friedrichs.
+
+### The Stator and Rotor
+The picture below shows that the base of the motor is square and in contact with a flat and stable surface. The stator
+serving as the base solves a lot of stability issues. A 1/2” close-fit hole was drilled in the center of a yellow
+pine 1/2”x5-1/2”x5-1/2” board into which a 1/2x6” zinc-plated steel shaft is pressed and optionally secured
+with adhesive or putty.
+On the stator are six electromagnetic copper coils equally spaced on a 4-1/2” diameter circle concentric to
+the drilled hole for the shaft. The electromagnetic coils have internal M3 threads for attachment to a mating
+
+```{figure} ../resources/RMK_3030.JPG
+---
+height: 150px
+name: directive-fig
+---
+Here is my figure caption!
+```
+
+:::{figure-md} markdown-fig
+<img src="../resources/RMK_3030.JPG" alt="fishy" class="bg-primary mb-1" width="200px">
+
+This is a caption in **Markdown**!
+:::
 
