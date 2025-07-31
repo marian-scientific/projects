@@ -136,7 +136,7 @@ Results
 -------
 The motor was tested was to determine the RPM while looking as a function of the vertical gap between the rotor and the stator, and consequently the distance between the magnets and the coils. The hypothesis is that a smaller gap yields a higher RPM. One of the issues is that the sensors need to be a set distance away from the magnets to detect the magnetic field from the magnets. So the sensors are placed about a maximum distance of 1/2”. These test are limited to a power supply of max 12V and 500 mA. A variance of power delivery would allow for more involved tests of torque and RPMs.
 
-![RPM_Table](resources/Table01.png)
+![RPM_Table](resources/Table01.PNG)
 *Table 1: Motor RPM as a function of Vertical Distance between Magnets and Coils. Other viewers gave their estimate of RPM when available.*
 
 As predicted, when the magnets got vertically closer to the coils, a higher RPM was observed. When the magnets and coils were 1” vertical distance apart, the motor had trouble maintaining rotation. Perhaps if higher voltage and current were delivered, this issue would be mitigated. Stream viewers were in disagreement of RPM, but all their estimates are tabulated in Table 1.
