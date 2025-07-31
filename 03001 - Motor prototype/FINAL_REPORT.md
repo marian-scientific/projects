@@ -70,24 +70,25 @@ Design and Procedure
 All of Friedrichs’ [1] designs presume some degree of familiarity with standard manufacturing processes. In a partnership with the Mechanical team at Marian Scientific, it was determined that a vertical shaft mounted on a stationary base could act as the stator itself. Without access to the requisite manufacturing facilities, this choice avoided the more intricate and complex design presented by Friedrichs.
 
 ### The Stator and Rotor
-The picture below shows that the base of the motor is square and in contact with a flat and stable surface. The stator
+Figure 1 shows that the base of the motor is square and in contact with a flat and stable surface. The stator
 serving as the base solves a lot of stability issues. A 1/2” close-fit hole was drilled in the center of a yellow
 pine 1/2”x5-1/2”x5-1/2” board into which a 1/2x6” zinc-plated steel shaft is pressed and optionally secured
 with adhesive or putty.
+
+![Prototype](resources/RMK_3030.JPG)
+*Figure 1: Prototype 03001*
+
 On the stator are six electromagnetic copper coils equally spaced on a 4-1/2” diameter circle concentric to
-the drilled hole for the shaft. The electromagnetic coils have internal M3 threads for attachment to a mating
+the drilled hole for the shaft. The electromagnetic coils have internal M3 threads for attachment to a mating surface. This is shown in Figure 2.
 
-```{figure} ../resources/RMK_3030.JPG
----
-height: 150px
-name: directive-fig
----
-Here is my figure caption!
-```
+![MotorBase](resources/RMK_3032.JPG)
+*Figure 2: The Stator for Prototype 03001*
 
-:::{figure-md} markdown-fig
-<img src="../resources/RMK_3030.JPG" alt="fishy" class="bg-primary mb-1" width="200px">
+A hexagonal rotor is cut from yellow pine. The hexagon circumscribes a 5-1/2” diameter circle. A 1/2x1-1/8” radial bearing is fitted at the center of the rotor and thus concentric to the 5-1/2” diameter circle. The underside of the rotor has three 20x3mm Neodymium magnets hot-glued near the vertices of the hexagon shape separated by 120°. See Figure 3.
 
-This is a caption in **Markdown**!
-:::
+![RotorTop](resources/RMK_3034.JPG)
+![RotorUnderside](resources/RMK_3035.JPG)
+*Figure 3: The Rotor. The Top image depicts the top of the rotor and the Bottom is the underside of the rotor
+with the magnets.*
+
 
