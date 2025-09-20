@@ -17,7 +17,7 @@ Abstract
 As part of an ongoing effort to design and fabricate a human-observable output for a low-power GPIO pin state, this project investigates the possibility of leveraging weak electrostatic charges applied to iron filings in order to manually measure a GPIO voltage level. While this goal was not met, various data and observations were collected that will benefit future endeavors at Marian Scientific. The phenomenon as observed from a Leydan Jar experiment was the inspiration for the 03003 Iron Jar Project.
 
 PUT A PICTURE HERE
-![Iron Jar Setup 01](resources/IronJarSetup01.jpg)
+![Iron Jar Setup 01](resources/IronJarSetup01.JPG)
 *The Iron Jar experiment setup for the Results section*
 
 Objective
@@ -51,7 +51,7 @@ At this point the team had several options,
 
 With the same materials already accumulated, the team designed another concept to produce a Human-Observable phenomenon that can be tested. The concept of the leyden jar was maintained, but a different approach was taken. Instead of building a leyden jar for testing, the team rigged up separate copper conductors that are serially connected through three 1000uF capacitors in parallel. 
 
-![A second view of the Iron Jar Setup](resources/IronJarSetup02.jpg)
+![A second view of the Iron Jar Setup](resources/IronJarSetup02.JPG)
 
 The capacitors overcome the need for a carefully manufactured leyden jar. The two conductors will have equal and opposite charges. One can place iron filings on the conductors and those filings will obtain the same charge on the respective conductors. So the filings can then be tested for that charge. 
 
@@ -73,7 +73,7 @@ The materials required for the experiment are as follows:
 * Arduino Uno Rev3 and misc. electronic components for test: (in inventory)
 
 MAYBE PUT A PICTURE HERE OF SOME OF THE COMPONENTS, I'M SURE YOU HAVE ONE
-![Description of Figure](resources/FILENAME.jpg)
+![Description of Figure](resources/FILENAME.JPG)
 
 Design & Procedure
 ------------------
@@ -82,7 +82,7 @@ The actual experimental procedure for this investigation evolved over the course
 Two strips of copper foil tape were affixed to a piece of paper with significant separation between them. Using alligator clips, these "contacts" were connected in parallel with the aforementioned capacitors, although the efficacy of this inclusion was not experimentally validated at this time. Iron filings were to be gently distributed on each contact surface, in addition to a region of the paper on which no copper foil tape was applied. One of these contacts was then connected to an output with voltage and current levels representative of that which a hobbyist microcontroller is capable of producing, and the other was connected to ground, in the traditional sense of a capacitative element.
 
 
-![Iron Jar Setup 01](resources/IronJarSetup01.jpg)
+![Iron Jar Setup 01](resources/IronJarSetup01.JPG)
 *Here's the Setup from before.*
 
 ![Iron Jar Diagram](resources/IronJarTheoryDiagram.png)
@@ -100,7 +100,7 @@ The general approach to detecting the applied output voltage was very simple. An
 
 So the Electrical Innovation team decided that an Ebonite Rod (rubbed with wool cloth to negative charge) and a Glass Rod (rubbed with a silk cloth to positive charge) will be used to determine if Iron Filings are charged or not. So if the conductor of interest is positively charged (thus charging the iron filings) and a glass rod is also positively charged, then most of the iron filings should not be attracted to the glass rod. 
 
-![Iron Filings Glass Rod](resources/IronFilingsonGlassRod.jpg)
+![Iron Filings Glass Rod](resources/IronFilingsonGlassRod.JPG)
 *The Glass rod attracted Iron Filings onto itself*
 
 
