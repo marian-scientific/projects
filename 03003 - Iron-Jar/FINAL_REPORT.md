@@ -239,7 +239,7 @@ This is because the iron filings should be positively charged and more attracted
 ### Trial 6
 The center (control) is more dense than the edge of the ebonite rod.
 
-![Trial 06](resoruces/Trial006.jpg)
+![Trial 06](resources/Trial006.jpg)
 *The left (center) is more dense than the right (edge).*
 
 This result should not be possible. Members of the Electrical Innovation team suggest this means the control is more positively charged than the conductor. Which should not be possible under the established hypothesis. A re-evaluation of the situation suggests that perhaps the node that represents the electric potential of the conductor is of lower potential compared to the white paper control potential. Therefore with this possibility, the team suggests that when the control density is greater than the edge density, the GPIO must be Low.
