@@ -122,7 +122,57 @@ The iron filings on the conductor. Are these filings able to be charged? Are the
 
 The code used to conduct this experiment is included below:
 ```
-void main(void);
+void setup() {
+  // put your setup code here, to run once:
+
+  // This is for the push button
+  pinMode(13, OUTPUT); // This has the LED
+  pinMode(12, OUTPUT); // For the Test output Nodes LED indicator
+  pinMode(11, INPUT);  // This is for the push button
+  pinMode(10, OUTPUT); // This is for the Test output Nodes
+   
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  // perhaps the button should be pressed twice to restart
+  // the loop
+  int sensor = digitalRead(11);
+
+
+  // Set the output low initially
+  digitalWrite(12,LOW);
+  
+  // If the button is pressed
+  if (sensor > 0){
+
+  digitalWrite(13,HIGH); // turn on the LED when the button is pressed
+  
+  // Select a number between 1 and 10
+  int randnumber = random(1, 11);
+
+  // we want the output to be high
+  if (randnumber > 5){
+    digitalWrite(12,HIGH); // LED is on and shows output is High
+    digitalWrite(10,HIGH); // the node is high
+    delay(10000); // hold for 10 seconds
+  }
+
+  // If the output is low, no capacitance
+  if (randnumber <= 5){
+    digitalWrite(12,LOW); // LED for Node shows low
+    digitalWrite(10,LOW); // make the node low
+    delay(10000); // hold for 10 seconds
+
+  }
+  }
+  
+  digitalWrite(13,LOW); // turn off the LED 
+  
+
+}
+
 ```
 
 Five trials were conducted of the experimental procedure described above. For each trial, the ebonite rod was rubbed approximately 30 times with the wool cloth in order to negatively charge it, and it was slid gently, while rotating it, over the filings sprinkled on the positively charged capacitor contact and the control, at a height of roughly between 1/4 and 1/2-inch. The qualitative density of the iron-filings that stuck to the rod from the capacitor contact were compared with that from the control in order to make an educated guess on the GPIO output level. If the filings attracted from the positively charged contact were more densely distributed than the control, then the GPIO level was expected to be "high". If the densities were approximately equal, the output was expected to be "low". Similarly, the glass rod was rubbed with the silk cloth approximately 30 times, and the same experimental procedure was applied to the negatively charged contact, and the opposite expectations were to be made.
@@ -135,20 +185,169 @@ The Electrical team acknowledges there are issues with the design of the experim
 
 Results & Observations
 ----------------------
+
+The program waits for the button to be pressed. Then the Arduino will either charge the capacitor or discharge the capacitor (if it’s already charged). The hypothesis says the conductor connected to the positive plate should be positively charged. 
+
+What’s important to full fill Human observable phenomenon is that a change can be observed. So an observation must be consistent with the hypothesis. A multimeter is used to measure the voltage on the positive side conductor for confirmation or inconsistencies of the hypothesis. 
+
+### Trial 1
+The right end of the glass rod represents the charged rod attracting the iron filings on the conductor. The middle of the glass rod represents the charged rod attracting the iron filings on the white paper. The white paper is not charged so the iron filings are not charged.
+
+![Trial 01](resources/Trial001.jpg)
+*The density of the iron filings on the left is greater than the density on the right.*
+
+This Result suggests the Conductor is positively charged (the capacitors are charged). So the GPIO should be High. But when measured by the multimeter, the conductor did not have a charge, it was 0V which means the GPIO must be low. If the GPIO was High, then the capacitors should have been charged and they wouldn’t discharge until the GPIO is set to Low via the programming (when the button is pressed and GPIO is randomly set High or Low).
+
+### Trial 2
+The middle of the rod (left side on the figure/picture below) and the end of the rod (the right side of the picture below) have similar densities. The hypothesis suggests that the conductor was not charged and the GPIO is Low. The viewers agreed.
+
+![Trial 02](resources/Trial002.jpg)
+*The densities on the left side and the right side are the same*
+
+The multimeter says the conductor was not charged via a reading of 0V. So the GPIO is Low.
+
+### Trial 3
+The densities appear to be the same, so the hypothesis suggests the conductor is not charged and the GPIO should be Low. The viewers did not give an opinion on this trial.
+
+![Trial 03](resources/Trial003.jpg)
+*The densities of the iron filings on the left and the right appear to be the same.*
+
+The multimeter read approximately 5V which indicate the GPIO yielded a High output.
+
+### Trial 4
+It appears as both densities are the same, so the hypothesis suggests that GPIO should be Low.
+
+![Trial 04](resources/Trial004-1.jpg)
+![Trial 04-2](resources/Trial004.jpg)
+*The Densities on the left and right appear the same.*
+
+The multimeter reads 0V, so the GPIO is Low. This is consistent with the hypothesis.
+
+### Trial 5
+This appears as if the density is greater at the center versus the density at the edge of the rod. So the hypothesis suggests the GPIO is High.
+
+![Trial 05](resources/Trial005.jpg)
+*It's clear the density on the left (center of the glass rod) is greater than thedensity on the right (edge of the glass rod)*
+
+The multimeter read 0V, so the GPIO was actually low.
+
+# Ebonite Rod Trials
+The rest of the trials remain the same except now the ebonite rod will be used and rubbed with a wool cloth. When rubbed, the ebonite rod is negatively charged. So to further expand on the established hypothesis, since conductor of interest is positively charged when the GPIO is High, when the ebonite rod is charged and supplants the glass rod in the trials, the ebonite rod should have a higher density concentration towards the edge of the rod versus the control.
+
+This is because the iron filings should be positively charged and more attracted to the negatively charged ebonite rod moreso than the control iron filings which should have no charge according to the hypothesis. 
+
+### Trial 6
+The center (control) is more dense than the edge of the ebonite rod.
+
+![Trial 06](resoruces/Trial006.jpg)
+*The left (center) is more dense than the right (edge).*
+
+This result should not be possible. Members of the Electrical Innovation team suggest this means the control is more positively charged than the conductor. Which should not be possible under the established hypothesis. A re-evaluation of the situation suggests that perhaps the node that represents the electric potential of the conductor is of lower potential compared to the white paper control potential. Therefore with this possibility, the team suggests that when the control density is greater than the edge density, the GPIO must be Low.
+
+With this in mind, the Team predicts the GPIO is Low under this observation of the trial. The multimeter reads 5V so the GPIO was actually High. 
+
+
+### Trial 7
+Visually both the center and the edge of the ebonite rod have the same density. The hypothesis remains the same but in some unforseen manner the electric potential of the conductor must be lower than the control.
+
+![Trial 07](resources/Trial007)
+*The densities on the left and the right are similar.*
+
+The Trial suggests that the GPIO must be High. The hypothesis states that when the conductor is high, there is more positive charge to accumulate on the iron filings, therefore the positively iron filings will be more attracted to a negative potential source as compared to the control. The control will still be attracted to the ebonite rod and is used as a comparison for the variable element. In other words there is a percievable difference with the variable element when the GPIO is High or Low. 
+
+But the multimeter reads 0V which indicate the GPIO is Low.
+
+### Trial 8
+The densities are the same, so the GPIO should be High.
+
+![Trial 08](resources/Trial008)
+*The densities appear to be the same.*
+
+The Multimeter read 0V, so the GPIO is Low.
+
+### Trial 9
+The center of the ebonite rod has a density of iron filings, but the edge has no iron filings. This is an unusual result which suggests a performative malfunction upon the experimenters. If the hypothesis is applied anyway, the GPIO should be Low.
+
+![Trial 09](resources/Trial009.jpg)
+*The left side (center of rod) has iron filings but the right side (edge of rod) has no iron filings. This is an unusual result.*
+
+The multimeter read 5V, which indicates the GPIO is High.
+
+### Trial 10
+The densities are the same, so the hypothesis predicts the node is positively charged, or a GPIO of High.
+
+![Trial 10-1](resources/Trial010-1.jpg)
+![Trial 10-2](resources/Trial010-2.jpg)
+*The densities are seemingly similar.*
+
+The multimeter read 0V, so the GPIO is Low.
+
+
 The results of the five trials are compiled below.
-| Tables   |      Are      |  Cool |
-|:---------|:-------------:|:-----:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
+| Trial   |  Opinion  |  Description | Truth  |
+|:--------|:---------:|:------------:|:------:|
+| 1       | H         | Center       | L      |
+| 2       | L         | Same         | L      |
+| 3       | L         | Same         | H      |
+| 4       | L         | Same         | L      |
+| 5       | H         | Center       | L      |
 
-PUT OTHER OBSERVATIONS AND RESULTS HERE.
 
-PUT SOME PICTURES HERE OF YOUR RODS WITH FILINGS ON THEM, WITH CONTROL.
-![Description of Figure](resources/FILENAME.jpg)
+The Results of the Ebonite Rod Trials are compiled below
+| Trial   |  Opinion  |  Description | Truth  |
+|:--------|:---------:|:------------:|:------:|
+| 6       | L         | Center       | H      |
+| 7       | H         | Same         | L      |
+| 8       | H         | Same         | L      |
+| 9       | L         | Center       | H      |
+| 10      | H         | Same         | L      |
+
+
+Discussion
+----------
+
+The glass rod trials were not predictive and inconclusive other than the comprehension of the variable elements at play are in question. The ebonite rod trials were exactly predictive in the opposite manner. At least it was 100% wrong on the coin flip. 
+
+
+The Trials that used the glass rod were not predictive. In the first 5 trials with the glass rod, the iron filing density concentration (observations) inform the team’s prediction. In the first 5 trials, there is no suggestion there is a correlation between the observations and the truth. 
+
+Quite possibly there may be mis-attributes or misunderstanding about the application of the hypothesis. Essentially that would mean the experiment isn’t robustly designed. Another possibility is that the hypothesis is wrong in addition to a poorly designed experiment. Maybe there needs to be more trials done which might reveal a stronger correlation of the truth (a case where 35% of the trials will be wrong). 
+
+The trials are not predictive, but then there’s a problem. It’s a mystery where to begin to figure out why the experiment failed. The Electrical team is aware that designing experiments is a complicated process that isn’t always clear cut. Perhaps an iterative approach may be a good strategy. This idea led to performing the Trials again but with the ebonite rod rubbed with wool. The hope is that there will be something revealing about the experiment setup after performing the trials with the ebonite rod. So when the trials were finished, the ebonite rod produced results that were consistent but in an unexpected way.
+
+Looking at the results from the table, the guessing of the GPIO was consistently incorrect. The outcome was the exact opposite of the guess. So apparently this means that there is a Human observable phenomenon but it wasn’t deliberately concocted. It’s as if it happened by accident. 
+
+So one wonders why are the ebonite results the way they are. Why are the glass rod results the way they are? Iron filings are not ions themselves unless there’s a chemical reaction to induce it. So they have charges on them. A fact overlooked is the material content of the iron filings themselves whereas such can influence the transfer of charge. 
+
+What certainly does not happen is the iron filings accept charge into their atom structures and behave like charges. The hypothesis was constructed as if the iron filings would behave similarly to charge. Such an oversight could explain why the ebonite trials had iron filings at higher densities in the center versus the edge. It was thought that there’s a possibility that the control had a higher potential versus the positive conductor due to poor experiment design. Quite possibly the truth could be that the control indeed had 0V as expected but the observed results were due to the unexpected nature of how charges interact with these specific iron filings. These specific iron filings have mix of materials to make them stable and ferromagnetic for magnetic observations common in an introductory physics class on electromagnetics. 
+
+In a future interation of this experiment could cast the control variable at the negative conductor of the leyden jar setup. This way, the electric potential of the control will not be in question. Another method can be that the control will be an independent conductor that is grounded and removed from the leyden jar itself. It was through convenience that the control iron filings where placed on the dielectric (white paper). 
+
+If the ebonite trials were conducted again with the suggestions for managing the control variable, the independent variable (iron filings on the positive end conductor) may produce the same results. If so, it would buttress the claim that the materials in the iron filings influence how charge reacts and changes the expectation from the original hypothesis. 
+
+For the next experiment, the hypothesis is that the iron filings do not behave like the charges themselves. This is more likely than the other possibility which is that the control in the original trials did not have zero potential (the control had lots of problems to be regarded as reliable). 
+
+
 
 Conclusions
 -----------
+
+The glass rod trials trials produced results that were not conclusive and not satisfactory of the human observable phenomenon requirement. It’s a mystery as to whether the experiment itself had a bad design or the rationale behind the behavior of charges was in question. After the original glass rod trials were performed, a member of the team suggested to redo the trials with the ebonite rod in order to uncover the mystery behind the unpredictable results. These ebonite rod trials inadvertently met the requirements of the human observable phenomenon problem.
+
+The ebonite rod results were 100% incorrect to a two answer question. This means that the experiment was incorrect all the time but consistently incorrect. So if the prediction were to be updated to be the opposite prediction, then observers can reliable predict the GPIO output without an LED or multimeter reading verification. This solves the human observable problem. 
+
+One can ask how can the design be refined? 
+
+The team believes that a more robust understanding of the experiment and hypothesis is required. Marian Scientific is always interested in methods of refining its products for a more consistent and robust performance. If resources, time, considering other projects at hand, and other project schedules permit, it would be a worthwhile to perform more experiments to update the hypothesis which would lead to a better design.
+
+From the results, it’s not in question that the experiment design has problems. To address these problems, a few questions must be answered. The hypothesis suggested that the iron filings would behave similarly as positive charges. The hypothesis also suggested how positive charges would behave. The team thinks the rationale behind the behavior of charges is sound, but verification is welcome. Consequently, it is prudent to conduct further investigation as if this behavior needs to be verified. It is not assumed to be correct.
+
+The team believes following through with an iterative experiment that takes in the suggestions in the discussion section would reveal if the results of this experiment are more influenced by the material makeup of the iron filings rather than a flawed comprehension of the behavior of charges in the original hypothesis. 
+
+The experiment design itself is the solution to the Human observable phenomenon. So further experimentation will produce a better experiment and solve the Human observable phenomenon problem more reliably and maybe more efficiently. 
+
+
+
 * Electrostatics is a challenging phenomenon to leverage for rendering a visual output with very minimal power and current requirements, especially with primitive equipment used for the measurements in this study.
 * Design of experiments is challenging to control for all variables (both in experimental plan and the execution itself).
 * Although the test apparatus controlled for confirmation bias, there are other things to control for, like number of rubs and height of rod as it was translated over the capacitor contacts.
