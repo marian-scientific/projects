@@ -250,7 +250,7 @@ With this in mind, the Team predicts the GPIO is Low under this observation of t
 ### Trial 7
 Visually both the center and the edge of the ebonite rod have the same density. The hypothesis remains the same but in some unforseen manner the electric potential of the conductor must be lower than the control.
 
-![Trial 07](resources/Trial007)
+![Trial 07](resources/Trial007.jpg)
 *The densities on the left and the right are similar.*
 
 The Trial suggests that the GPIO must be High. The hypothesis states that when the conductor is high, there is more positive charge to accumulate on the iron filings, therefore the positively iron filings will be more attracted to a negative potential source as compared to the control. The control will still be attracted to the ebonite rod and is used as a comparison for the variable element. In other words there is a percievable difference with the variable element when the GPIO is High or Low. 
@@ -260,7 +260,7 @@ But the multimeter reads 0V which indicate the GPIO is Low.
 ### Trial 8
 The densities are the same, so the GPIO should be High.
 
-![Trial 08](resources/Trial008)
+![Trial 08](resources/Trial008.jpg)
 *The densities appear to be the same.*
 
 The Multimeter read 0V, so the GPIO is Low.
