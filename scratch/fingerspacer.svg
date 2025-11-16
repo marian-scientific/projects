@@ -1,0 +1,16 @@
+<svg width="100mm" height="50mm" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
+<path
+d="M 10 40
+L 10 20
+L 45 20
+L 45 10
+A 5 5 0 1 1 55 10
+L 55 20
+L 90 20
+L 90 40
+L 10 40"
+stroke="black"
+fill="none"
+/>
+<text x="38" y="33" style="font-family: Brixton; font-size: 8px;">SPACE</text>
+</svg>
