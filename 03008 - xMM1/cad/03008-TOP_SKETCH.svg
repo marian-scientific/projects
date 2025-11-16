@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="204.0mm" height="104.0mm" viewBox="0 0 204.0 104.0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<g id="Part__Part2DObjectPython001" transform="translate(2.000000,102.000000) scale(1,-1)">
+<path id="Part__Part2DObjectPython001_w0000"  d="M 0.0 0.0 L 200.0 0.0 L 200.0 100.0 L 0.0 100.0 L 0.0 0.0 " stroke="#f1f3f5" stroke-width="0.7 px" style="stroke-width:0.7;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:none;fill-opacity:1;fill-rule: evenodd"/>
+<circle cx="10.0" cy="90.0" r="2.0" stroke="#f1f3f5" stroke-width="0.7 px" style="stroke-width:0.7;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:none"/>
+<circle cx="189.99999999999997" cy="90.0" r="2.0" stroke="#f1f3f5" stroke-width="0.7 px" style="stroke-width:0.7;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:none"/>
+<circle cx="189.99999999999997" cy="10.0" r="2.0" stroke="#f1f3f5" stroke-width="0.7 px" style="stroke-width:0.7;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:none"/>
+<circle cx="10.0" cy="10.0" r="2.0" stroke="#f1f3f5" stroke-width="0.7 px" style="stroke-width:0.7;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:none"/>
+<path id="Part__Part2DObjectPython001_w0005"  d="M 130.0 67.5 L 130.0 32.5 L 180.0 32.5 L 180.0 67.5 L 130.0 67.5 " stroke="#f1f3f5" stroke-width="0.7 px" style="stroke-width:0.7;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:none;fill-opacity:1;fill-rule: evenodd"/>
+<path id="Part__Part2DObjectPython001_w0006"  d="M 20.0 67.5 L 20.0 32.5 L 70.0 32.5 L 70.0 67.5 L 20.0 67.5 " stroke="#f1f3f5" stroke-width="0.7 px" style="stroke-width:0.7;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:none;fill-opacity:1;fill-rule: evenodd"/>
+<path id="Part__Part2DObjectPython001_w0007"  d="M 74.99999999999999 62.50000000000002 L 74.99999999999999 37.50000000000001 A 5 5 0 0 1 80 32.5L 119.99999999999999 32.50000000000001 A 5 5 0 0 1 125 37.5L 124.99999999999999 62.500000000000014 A 5 5 0 0 1 120 67.5L 79.99999999999999 67.50000000000003 A 5 5 0 0 1 75 62.5" stroke="#f1f3f5" stroke-width="0.7 px" style="stroke-width:0.7;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:none;fill-opacity:1;fill-rule: evenodd"/>
+<title>b'Part__Part2DObjectPython001'</title>
+</g>
+</svg>
