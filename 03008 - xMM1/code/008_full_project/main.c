@@ -1,3 +1,4 @@
+#define F_CPU 8000000UL
 #include <stdlib.h>
 #include <avr/io.h>
 #include <util/delay.h>
@@ -16,11 +17,20 @@
 #define NOTE_A4   283
 #define NOTE_BFLAT4 267
 
-void start_tone(uint16_t top_value) {
+void init_timer1(void) {
 
     // Configure Timer1 for Fast PWM Mode (Mode 14)
     TCCR1A = (1 << WGM11);
     TCCR1B = (1 << WGM13) | (1 << WGM12);
+
+    // non-inverting output on OC1A
+    TCCR1A |= (1 << COM1A1);
+
+    // Set Prescaler to 8 and START the timer
+    TCCR1B |= PRESCALER_BITS;
+}
+
+void start_tone(uint16_t top_value) {
 
     // Frequency
     ICR1 = top_value;
@@ -28,11 +38,7 @@ void start_tone(uint16_t top_value) {
     // 50% duty cycle
     OCR1A = top_value / 2;
 
-    // non-inverting output on OC1A
-    TCCR1A |= (1 << COM1A1);
-
-    // Set Prescaler to 8 and START the timer
-    TCCR1B |= PRESCALER_BITS;
+//    _delay_ms(20);
 }
 
 // Stops the tone by disabling the timer clock
@@ -42,23 +48,17 @@ void stop_tone() {
     PORTB &= ~(1 << BUZZER_PIN);
 }
 
-void sound(uint16_t NOTE) {
-    uint16_t duration_ms = 150;
-    start_tone(NOTE);
-    _delay_ms(duration_ms);
-    stop_tone();
-}
-
 void success() {
 
     PORTC &= ~(1 << PC5);
     PORTC |= (1 << PC3);
-
+    
+    init_timer1();
     uint16_t notes[] = {NOTE_G4, NOTE_B4, NOTE_D5};
-    uint16_t duration_ms = 150;
     for (int i = 0; i < 3; i++) {
         start_tone(notes[i]);
-        _delay_ms(duration_ms);
+	for (int q=0; q<10; q++)
+		_delay_ms(20);
     }
     stop_tone();
     
@@ -69,11 +69,12 @@ void failure() {
     PORTC &= ~(1 << PC5);
     PORTC |= (1 << PC4);
     
+    init_timer1();
     uint16_t notes[] = {NOTE_A4, NOTE_BFLAT4, NOTE_A4};
-    uint16_t duration_ms = 150;
     for (int i = 0; i < 3; i++) {
         start_tone(notes[i]);
-        _delay_ms(duration_ms);
+	for (int q=0; q<10; q++)
+		_delay_ms(20);
     }
     stop_tone();
 }
@@ -96,7 +97,7 @@ void initialize_random_seed() {
     }
     
     // Seed RNG using the noise from the unconnected ADC pin 0
-    srand(read_adc(0));
+    srand(read_adc(2));
 }
 
 #define MAX7219_REG_SHUTDOWN      0x0C
@@ -138,16 +139,20 @@ void max7219_init(void) {
     max7219_send(MAX7219_REG_DECODE_MODE, 0xFF); 
     
     // set Intensity (Brightness)
-    max7219_send(MAX7219_REG_INTENSITY, 0x05); 
+    max7219_send(MAX7219_REG_INTENSITY, 0x02); 
     
     // exit Shutdown mode
     max7219_send(MAX7219_REG_SHUTDOWN, 0x01);
+
+    _delay_ms(5);
 }
 
 int main(void) {
 
     // INIT BUZZER
     DDRB |= (1 << BUZZER_PIN);
+    init_timer1();
+    stop_tone();
     
     // INIT REED SWITCHES
     DDRC &= ~(1 << PC0);
@@ -165,35 +170,62 @@ int main(void) {
     
     // INIT RAND
     initialize_random_seed();
-    
+
+    // INIT 7219MAX    
+    spi_init();
+    max7219_init();
+ 
     while (1) {
 
         int V0 = (rand() % 99) + 1; 
         int V1 = (rand() % 99) + 1;
         while (V1==V0)	{
-        	int V1 = (rand() % 99) + 1;
+        	V1 = (rand() % 99) + 1;
 	}
 
-	TRY_AGAIN:
+	max7219_send(1, 0xF); 
+    	max7219_send(2, 0xF); 
+	max7219_send(3, 0xF); 
+    	max7219_send(4, 0xF); 
 
-	max7219_send(1, V0/10); 
+	if (V0/10)	
+		max7219_send(1, V0/10); 
     	max7219_send(2, V0%10); 
-    	max7219_send(3, V1/10); 
+
+	if (V1/10)	
+		max7219_send(3, V1/10); 
     	max7219_send(4, V1%10); 
 
-	if (((!(PINC & (1 << PC0))) & (V0>V1)) | ((!(PINC & (1 << PC1))) & (V1>V0))) {
-	  	success();
-		while (!(PINC & (1 << PC0)));
-    		PORTC &= ~(1 << PC3);
+    while (1) {
+  
+    	PORTC |= (1 << PC5);
+        _delay_ms(100);
+	
+	if (((!(PINC & (1 << PC0))) && (V0>V1)) || ((!(PINC & (1 << PC1))) && (V1>V0))) {
+	  	_delay_ms(50);
+		if (((!(PINC & (1 << PC0))) && (V0>V1)) || ((!(PINC & (1 << PC1))) && (V1>V0))) {
+			success();
+			while (!(PINC & (1 << PC0)) || !(PINC & (1 << PC1))){
+        			_delay_ms(20);
+			}
+    			PORTC &= ~(1 << PC3);
+			goto GO_AGAIN;
+		}
 	}
-	if (((!(PINC & (1 << PC0))) & (V0<V1)) | ((!(PINC & (1 << PC1))) & (V1<V0))) {
-		failure();
-		while (!(PINC & (1 << PC1)));
-    		PORTC &= ~(1 << PC4);
-		goto TRY_AGAIN;
+	else if (((!(PINC & (1 << PC0))) && (V0<V1)) || ((!(PINC & (1 << PC1))) && (V1<V0))) {
+		_delay_ms(50);
+		if (((!(PINC & (1 << PC0))) && (V0<V1)) || ((!(PINC & (1 << PC1))) && (V1<V0))) {
+			failure();
+			while (!(PINC & (1 << PC0)) || !(PINC & (1 << PC1))){
+        	 	   	_delay_ms(20);
+			}
+    			PORTC &= ~(1 << PC4);
+		}
 	}
-    		PORTC |= (1 << PC5);
+    	PORTC |= (1 << PC5);
     }
+    GO_AGAIN:
+}
 
     return 0;
 }
