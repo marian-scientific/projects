@@ -79,25 +79,36 @@ void failure() {
     stop_tone();
 }
 
-uint16_t read_adc(uint8_t channel) {
-    ADMUX = (1 << REFS0) | (channel & 0x0F);
-    ADCSRA |= (1 << ADSC); 
-    while (ADCSRA & (1 << ADSC)); 
-    return ADC; 
+uint16_t read_adc_channel(uint8_t channel) {
+    ADMUX = (ADMUX & 0xF0) | (channel & 0x0F);
+    ADCSRA |= _BV(ADSC);
+
+    while (ADCSRA & _BV(ADSC));
+
+    return ADC;
 }
 
 void initialize_random_seed() {
-    ADMUX = (1 << REFS0);
-    ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
 
-    // Read a few times to stabilize
-    for (int i = 0; i < 5; i++) {
-        read_adc(0);
-        _delay_ms(1);
-    }
+	_delay_ms(10);
+	
+	ADMUX = _BV(REFS0) | 2;
+	ADCSRA = _BV( ADEN) | _BV(ADPS2);
+	DIDR0 |= _BV(ADC2D);
+
+	uint32_t seed=0;
     
-    // Seed RNG using the noise from the unconnected ADC pin 0
-    srand(read_adc(2));
+    	for (int i = 0; i < 100; i++) {
+        	uint16_t sample = read_adc_channel(2);
+
+        	uint8_t noisy_bits = (uint8_t)(sample & 0x03); 
+
+        	seed = (seed << 2) | noisy_bits;
+        
+        // _delay_us(10); 
+   	 }
+
+    	srand(seed);
 }
 
 #define MAX7219_REG_SHUTDOWN      0x0C
@@ -115,7 +126,7 @@ void max7219_send(uint8_t address, uint8_t data);
 void max7219_init(void);
 
 void spi_init(void) {
-    DDRB |= (1 << PB3) | (1 << PB5) | (1 << MAX7219_CS_PIN);
+    MAX7219_CS_DDR |= (1 << PB3) | (1 << PB5) | (1 << MAX7219_CS_PIN);
     MAX7219_CS_PORT |= (1 << MAX7219_CS_PIN);
     SPCR = (1 << SPE) | (1 << MSTR) | (1 << SPR0); 
 }
@@ -130,6 +141,11 @@ void max7219_send(uint8_t address, uint8_t data) {
 }
 
 void max7219_init(void) {
+
+    max7219_send(0x00, 0x00);
+
+    _delay_ms(10);
+
     max7219_send(MAX7219_REG_DISPLAY_TEST, 0x00);
     
     // scan from digit 0 to digit 3
@@ -144,7 +160,7 @@ void max7219_init(void) {
     // exit Shutdown mode
     max7219_send(MAX7219_REG_SHUTDOWN, 0x01);
 
-    _delay_ms(5);
+    _delay_ms(10);
 }
 
 int main(void) {
@@ -173,6 +189,7 @@ int main(void) {
 
     // INIT 7219MAX    
     spi_init();
+    _delay_ms(10);
     max7219_init();
  
     while (1) {
