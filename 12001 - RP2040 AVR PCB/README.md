@@ -7,11 +7,11 @@ To address a lot of pending questions for future designs involving microcontroll
 
 ## Target Project Milestones: 
 
--[Completed 2025-12-15]: [Simple test blink program for atmega328p (easy)](marian-scientific/projects/12001%20-%20RP2040%20VR%20PCB/code/001_atmega328p_blink)
+-[Completed 2025-12-15]: [Simple test blink program for atmega328p (easy)](code/001_atmega328p_blink)
 
--[Completed 2025-12-15]: [Simple test blink program on waveshare rp2040 zero board (easy)](marian-scientific/projects/12001%20-%20RP2040%20VR%20PCB/code/002_rp2040_blink)
+-[Completed 2025-12-15]: [Simple test blink program on waveshare rp2040 zero board (easy)](code/002_rp2040_blink)
 
--[Completed 2025-12-15]: [Serial communication to control LED on rp2040 zero (medium)](marian-scientific/projects/12001%20-%20RP2040%20VR%20PCB/code/003_rp2040_serial_blink)
+-[Completed 2025-12-15]: [Serial communication to control LED on rp2040 zero (medium)](code/003_rp2040_serial_blink)
 
 -Tuesday/Wednesday: Implement AVR ICSP protocol on rp2040, use oscilloscope to capture the output signal for debugging (hard)
 
