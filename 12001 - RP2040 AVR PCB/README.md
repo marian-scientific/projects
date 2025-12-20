@@ -13,9 +13,9 @@ To address a lot of pending questions for future designs involving microcontroll
 
 -[Completed 2025-12-15]: [Serial communication to control LED on rp2040 zero (medium)](code/003_rp2040_serial_blink)
 
--Tuesday/Wednesday: Implement AVR ICSP protocol on rp2040, use oscilloscope to capture the output signal for debugging (hard)
+-[Completed 2025-12-19]: [Implement AVR ICSP protocol on rp2040, use oscilloscope to capture the output signal for debugging (hard)](code/005_rp2040_icsp)
 
--Thursday: computer program/script to send necessary serial commands to rp2040 to transmit the data and program the atmega328p (medium)
+-[Completed 2025-12-19]: [Computer program/script to send necessary serial commands to rp2040 to transmit the data and program the atmega328p (medium)](code/005_rp2040_icsp)
 
 -Friday: PCB design for programmer circuit and some header pins/led on the atmega for simple debugging, like a dev board (medium)
 
