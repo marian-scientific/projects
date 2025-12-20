@@ -1,143 +1,166 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/spi.h"
-#include "hardware/pio.h"
-#include "hardware/clocks.h"
-#include "ws2812.pio.h"
+#include <string.h>
 
-#define WS2812_PIN 16 
-#define IS_RGBW false
-#define NUM_PIXELS 1
-
-static inline void set_neopixel_color(uint32_t color) {
-	pio_sm_put_blocking(pio0, 0, color); 
-}
-
-uint32_t urgb_u32(uint8_t r, uint8_t g, uint8_t b) {
-	return ((uint32_t)g << 24) | ((uint32_t)r << 16) | ((uint32_t)b << 8) | 0;
-}
-
-void ws2812_init(PIO pio, uint sm, uint pin, float freq) {
-	uint offset = pio_add_program(pio, &ws2812_program);
-
-	pio_gpio_init(pio, pin);
-	pio_sm_set_consecutive_pindirs(pio, sm, pin, 1, true);
-
-	pio_sm_config c = ws2812_program_get_default_config(offset);
-	sm_config_set_sideset_pins(&c, pin);
-	sm_config_set_out_shift(&c, false, true, 24);
-	sm_config_set_fifo_join(&c, PIO_FIFO_JOIN_TX);
-
-	int cycles_per_bit = ws2812_T1 + ws2812_T2 + ws2812_T3;
-	float div = clock_get_hz(clk_sys) / (freq * cycles_per_bit);
-	sm_config_set_clkdiv(&c, div);
-
-	pio_sm_init(pio, sm, offset, &c);
-	pio_sm_set_enabled(pio, sm, true);
-}
-
-// Define SPI pins
+// SPI instance
 #define SPI_PORT spi0
-#define SCK_PIN 6
-#define MOSI_PIN 7
-#define MISO_PIN 4
-#define RESET_PIN 3
-#define SPI_FREQ 250000
-//#define SPI_FREQ 250
+#define PIN_SCK   6
+#define PIN_MOSI  7
+#define PIN_MISO  4
+#define PIN_RESET 3
 
+// AVR programming commands
+#define CMD_PROGRAMMING_ENABLE    0xAC530000
+#define CMD_CHIP_ERASE           0xAC800000
+#define CMD_READ_SIGNATURE       0x30000000
+#define CMD_READ_FUSE_LOW        0x50000000
+#define CMD_READ_FUSE_HIGH       0x58080000
+#define CMD_READ_FUSE_EXT        0x50080000
+#define CMD_WRITE_FUSE_LOW       0xACA00000
+#define CMD_WRITE_FUSE_HIGH      0xACA80000
+#define CMD_WRITE_FUSE_EXT       0xACA40000
+#define CMD_LOAD_PROG_PAGE_LOW   0x40000000
+#define CMD_LOAD_PROG_PAGE_HIGH  0x48000000
+#define CMD_WRITE_PROG_PAGE      0x4C000000
+#define CMD_READ_PROG_LOW        0x20000000
+#define CMD_READ_PROG_HIGH       0x28000000
 
-void setup_spi() {
+// ATmega328P signature bytes
+#define ATMEGA328P_SIG0 0x1E
+#define ATMEGA328P_SIG1 0x95
+#define ATMEGA328P_SIG2 0x0F
 
-	spi_init(SPI_PORT, SPI_FREQ);
+// Programming parameters
+#define SPI_FREQ_HZ 50000  // 250 kHz - safe for most AVR clock speeds
+#define MAX_ENABLE_TRIES 32
+#define PAGE_SIZE 128     // ATmega328P flash page size in bytes
+#define FLASH_SIZE 32768   // 32KB
 
-	gpio_set_function(SCK_PIN, GPIO_FUNC_SPI);
-	gpio_set_function(MOSI_PIN, GPIO_FUNC_SPI);
-	gpio_set_function(MISO_PIN, GPIO_FUNC_SPI);
+typedef struct {
+	bool connected;
+	uint8_t signature[3];
+	uint8_t fuse_low;
+	uint8_t fuse_high;
+	uint8_t fuse_ext;
+} avr_info_t;
 
-	// CS not needed because reset acts as CS
-	//	gpio_set_function(CS_PIN, GPIO_FUNC_SPI);
+// Send 4-byte SPI command and return 4-byte response
+static uint32_t spi_transaction(uint32_t cmd) {
+	uint8_t tx[4], rx[4];
 
-	gpio_init(RESET_PIN);//, GPIO_OUT); 
-	gpio_set_dir(RESET_PIN, GPIO_OUT); 
-	gpio_put(RESET_PIN, 1); // normal operation
+	tx[0] = (cmd >> 24) & 0xFF;
+	tx[1] = (cmd >> 16) & 0xFF;
+	tx[2] = (cmd >> 8) & 0xFF;
+	tx[3] = cmd & 0xFF;
 
-	spi_set_format(
-			SPI_PORT,
-			8,          // 8 bits per transfer
-			SPI_CPOL_0, // CPOL=0
-			SPI_CPHA_0, // CPHA=0
-			SPI_MSB_FIRST // Data is sent MSB first
-		      );
+	spi_write_read_blocking(SPI_PORT, tx, rx, 4);
+
+	return (rx[0] << 24) | (rx[1] << 16) | (rx[2] << 8) | rx[3];
 }
 
-#define PACKET_SIZE 6
-typedef struct {
-	uint8_t op_code;    // 1 byte: The command (e.g., 0x01, 0xFE, 0xFF)
-	uint32_t payload;   // 4 bytes: Parameter, Address, or Size
-	uint8_t checksum;   // 1 byte: Integrity check
-} command_packet_t; // Total 6 bytes
+// Initialize SPI and GPIO
+void avr_prog_init(void) {
+	// Initialize SPI at 250 kHz, SPI mode 0
+	spi_init(SPI_PORT, SPI_FREQ_HZ);
+	spi_set_format(SPI_PORT, 8, SPI_CPOL_0, SPI_CPHA_0, SPI_MSB_FIRST);
 
-void start_programming() {
+	// Configure GPIO pins
+	gpio_set_function(PIN_SCK, GPIO_FUNC_SPI);
+	gpio_set_function(PIN_MOSI, GPIO_FUNC_SPI);
+	gpio_set_function(PIN_MISO, GPIO_FUNC_SPI);
 
-	uint8_t command[4];
-	uint8_t response[4];
+	// RESET pin as output, start high (not in reset)
+	gpio_init(PIN_RESET);
+	gpio_set_dir(PIN_RESET, GPIO_OUT);
+	gpio_put(PIN_RESET, 1);
+}
 
-	// pull reset pin low
-	gpio_put(RESET_PIN, 0);
-	sleep_ms(200);
+// Enter programming mode
+bool avr_enter_programming_mode(void) {
+	// Pulse reset to ensure clean state
+	gpio_put(PIN_RESET, 1);
+	sleep_ms(10);
+	gpio_put(PIN_RESET, 0);
+	sleep_ms(25);  // Wait for target to reset (min 20ms recommended)
 
-	// programming enable
-	// AVR Command: 0xAC 0x53 0x00 0x00
-	command[0] = 0xAC; // Programming Enable
-	command[1] = 0x53; // Check value
-	command[2] = 0x00;
-	command[3] = 0x00;
-/*	while(1)
-	{	gpio_put(RESET_PIN, 1);
-	sleep_ms(20);
-	gpio_put(RESET_PIN, 0);
-	sleep_ms(20);*/
+	// Try to enable programming mode
+	for (int i = 0; i < MAX_ENABLE_TRIES; i++) {
+		uint32_t response = spi_transaction(CMD_PROGRAMMING_ENABLE);
+		//printf("tryna init\n");
+		// Check if byte 3 echoes 0x53
+		if (((response>>8) & 0xFF) == 0x53) {
+		
+			uint8_t success = 0x00;
+			fwrite(&success, 1, 1, stdout);
+			fflush(stdout);
+			return true;
+		}
 
-	spi_write_read_blocking(SPI_PORT, command, response, 4);
-	//}
+		// Small delay before retry
+		sleep_us(100);
 
-	printf("RESPONSE Byte 0: 0x%02X\n", response[0]);
-	printf("RESPONSE Byte 1: 0x%02X\n", response[1]);
-	printf("RESPONSE Byte 2: 0x%02X\n", response[2]);
-	printf("RESPONSE Byte 3: 0x%02X\n", response[3]);
-
-	// AVR usually responds with 0x53 0x00 in bytes 2 and 3 if successful.
-	if (response[2] != 0x53) {
-		printf("Failed to enter programming mode!\n");
-		return;
+		// On failure, try pulsing SCK (some implementations do this)
+		if (i > 0 && (i % 8) == 0) {
+			gpio_put(PIN_RESET, 1);
+			sleep_us(10);
+			gpio_put(PIN_RESET, 0);
+			sleep_ms(25);
+		}
 	}
-	printf("Entered Programming Mode\n");
 
-	// chip erase
-	// AVR Command: 0xAC 0x80 0x00 0x00
-	command[0] = 0xAC; 
-	command[1] = 0x80;
-	command[2] = 0x00;
-	command[3] = 0x00;
-	spi_write_read_blocking(SPI_PORT, command, response, 4);
-	sleep_ms(10); // must wait until it's done
-	printf("Chip Erased\n");
+	uint8_t failure = 0x01;
+	fwrite(&failure, 1, 1, stdout);
+	fflush(stdout);
+
+	return false;
+}
+
+// Exit programming mode
+void avr_exit_programming_mode(void) {
+	gpio_put(PIN_RESET, 1);
+	sleep_ms(1);
 
 	uint8_t success = 0x00;
 	fwrite(&success, 1, 1, stdout);
 	fflush(stdout);
-	return;
-
 }
 
-void process_data(uint32_t len) {
-	uint8_t data_buffer[260];
+// Read device signature
+bool avr_read_signature(uint8_t sig[3]) {
+	sig[0] = spi_transaction(CMD_READ_SIGNATURE | 0x0000) & 0xFF;
+	sig[1] = spi_transaction(CMD_READ_SIGNATURE | 0x0100) & 0xFF;
+	sig[2] = spi_transaction(CMD_READ_SIGNATURE | 0x0200) & 0xFF;
+
+	// Verify it's a valid signature (manufacturer ID should be 0x1E for Atmel)
+	return (sig[0] == 0x1E);
+}
+
+// Read fuses
+void avr_read_fuses(uint8_t *low, uint8_t *high, uint8_t *ext) {
+	*low = spi_transaction(CMD_READ_FUSE_LOW) & 0xFF;
+	*high = spi_transaction(CMD_READ_FUSE_HIGH) & 0xFF;
+	*ext = spi_transaction(CMD_READ_FUSE_EXT) & 0xFF;
+}
+
+// Chip erase (required before programming)
+void avr_chip_erase(void) {
+	spi_transaction(CMD_CHIP_ERASE);
+	sleep_ms(10);  // Typical erase time ~9ms, use 10ms to be safe
+	
+	uint8_t success = 0x00;
+	fwrite(&success, 1, 1, stdout);
+	fflush(stdout);
+}
+
+void avr_process_data(uint32_t len) {
+	uint8_t data_buffer[132];
 
 	// 1. BLOCKING READ from PC
-	// We wait for the full 260-byte payload to arrive over USB
-	size_t read_count = fread(data_buffer, 1, len, stdin);
+	// We wait for the full 132-byte payload to arrive over USB
+	size_t read_count = fread(data_buffer, 1, 4+len, stdin);
 
-	if (read_count != len) {
+	if (read_count != (4+len)) {
 		// Handle error: partial packet received
 		uint8_t err = 0x02; 
 		fwrite(&err, 1, 1, stdout);
@@ -145,14 +168,14 @@ void process_data(uint32_t len) {
 		return;
 	}
 
-	// 2. PARSE THE ADDRESS (First 4 bytes of the 260-byte packet)
+	// 2. PARSE THE ADDRESS (First 4 bytes of the 132-byte packet)
 	// AVR Flash is word-addressed (1 word = 2 bytes)
 	uint32_t start_address = (data_buffer[0] << 24) | (data_buffer[1] << 16) | 
 		(data_buffer[2] << 8)  | (data_buffer[3]);
 
-	// 3. LOAD THE AVR PAGE BUFFER (Remaining 256 bytes)
-	// We send 128 "Load" commands (each command sends 1 word = 2 bytes)
-	for (uint16_t i = 0; i < 128; i++) {
+	// LOAD THE AVR PAGE BUFFER (Remaining 128 bytes)
+	// We send 64*2 "Load" commands (high & low) (each command sends 1 word = 2 bytes)
+	for (uint16_t i = 0; i < 64; i++) {
 		uint8_t low_byte  = data_buffer[4 + (i * 2)];
 		uint8_t high_byte = data_buffer[4 + (i * 2) + 1];
 		uint16_t word_addr = i; // Offset within the page
@@ -166,95 +189,108 @@ void process_data(uint32_t len) {
 		spi_write_read_blocking(SPI_PORT, load_high, NULL, 4);
 	}
 
-	// 4. COMMIT THE PAGE TO FLASH
-	// This physically writes the buffer into the Flash memory at the start_address
+	// COMMIT THE PAGE TO FLASH
 	// Command: 0x4C, HighAddr, LowAddr, 0x00
 	uint8_t write_page[4] = {
 		0x4C, 
-		(uint8_t)(start_address >> 8), 
-		(uint8_t)(start_address & 0xFF), 
+		(uint8_t)((start_address/2) >> 8), 
+		(uint8_t)((start_address/2) & 0xFF), 
 		0x00
 	};
 	spi_write_read_blocking(SPI_PORT, write_page, NULL, 4);
 
-	// 5. WAIT FOR WRITE CYCLE
 	// Physically writing to Flash takes time (approx 5-10ms)
 	sleep_ms(10);
 
-	// 6. RESPONSE TO PC
 	uint8_t success = 0x00;
 	fwrite(&success, 1, 1, stdout);
 	fflush(stdout);
 	return;
 }
 
-void test(){
-while(true) {
-    uint8_t test_data = 0xAA;
-    spi_write_read_blocking(spi0, &test_data, NULL, 1);
-  //  sleep_ms(10);
-    printf("testing...\n");
-}
-}
+bool avr_get_info(avr_info_t *info) {
+	memset(info, 0, sizeof(avr_info_t));
 
-int main() {
-
-	unsigned char greenness=0;
-	command_packet_t packet;
-	size_t bytes_read = 0;
-
-	stdio_init_all();
-	setup_spi();
-
-
-	PIO pio = pio0; // Use PIO block 0
-	int sm = 0;     // Use State Machine 0
-	uint offset = pio_add_program(pio, &ws2812_program);
-	ws2812_init(pio, sm, WS2812_PIN, 800000);
-
-	set_neopixel_color(urgb_u32(0x00, greenness, 0x00));
-
-	sleep_ms(1000); // Wait for USB serial connection
-
-	printf("spi setup complete\n");
-
-//	test();
-
-	while (true) {
-
-		bytes_read = fread(&packet, 1, PACKET_SIZE, stdin);
-
-		if (bytes_read != PACKET_SIZE) {
-			printf("\nTRANSFER ERROR\n");
-			continue; 
-		}
-
-		printf("COMMAND RECEIVED: 0x%02X\n", packet.op_code);
-
-		switch (packet.op_code) {
-			case 0x01:
-				printf("OP_CODE 0x01: START PROGRAMMING\n");
-				start_programming();
-				break;
-
-			case 0xFE:
-				printf("OP_CODE 0xFE: STOP PROGRAMMING\n");
-				gpio_put(RESET_PIN,1);
-				break;
-
-			case 0xFF:
-				printf("OP_CODE 0xFF: DATA TRANSFER (%lu BYTES)\n", packet.payload);
-				process_data(packet.payload);
-				break;
-
-			default:
-	//			start_programming();
-				printf("UNKNOWN OP_CODE: 0x%02X\n", packet.op_code);
-				break;
-		}
-
-		printf("ACK - COMMAND PROCESSED\n"); 
+	if (!avr_enter_programming_mode()) {
+		return false;
 	}
+
+	info->connected = avr_read_signature(info->signature);
+
+	if (info->connected) {
+		avr_read_fuses(&info->fuse_low, &info->fuse_high, &info->fuse_ext);
+	}
+
+	return info->connected;
+}
+
+bool avr_read_info(){
+	avr_info_t info;
+	if (avr_get_info(&info)) {
+		printf("Device detected!\n");
+		printf("Signature: 0x%02X 0x%02X 0x%02X\n", 
+				info.signature[0], info.signature[1], info.signature[2]);
+
+		if (info.signature[0] == ATMEGA328P_SIG0 &&
+				info.signature[1] == ATMEGA328P_SIG1 &&
+				info.signature[2] == ATMEGA328P_SIG2) {
+			printf("Device: ATmega328P\n");
+		}
+		else {
+			printf("Device model not supported.\n");
+		}
+
+		printf("Fuses: L=0x%02X H=0x%02X E=0x%02X\n",
+				info.fuse_low, info.fuse_high, info.fuse_ext);
+		return true;
+	}
+	else {
+		printf("Failed to read device info.\n");
+		printf("Check connections and target power.\n");
+		return false;
+	}
+
+}
+
+int main(void) {
+	
+	stdio_init_all();
+	
+	size_t bytes_read = 0;
+	uint8_t buffer[6];
+
+
+	sleep_ms(1000);
+
+
+	while (1) {
+
+		fread(buffer, 1, 6, stdin);
+		uint8_t op_code=buffer[0];
+		uint32_t payload = (buffer[1] << 24) | (buffer[2] << 16) | (buffer[3] << 8)  | buffer[4];
+
+		switch (op_code) {
+			case 0x01:
+				avr_prog_init();
+				avr_enter_programming_mode();
+				break;
+			case 0x02:
+				avr_read_info();
+				break;
+			case 0x03:
+				avr_chip_erase();
+				break;
+			case 0xFE:
+				avr_exit_programming_mode();
+				break;
+			case 0xFF:
+				avr_process_data(payload);
+				break;
+			default:
+				break;
+		}
+
+	}
+
 	return 0;
 }
-
