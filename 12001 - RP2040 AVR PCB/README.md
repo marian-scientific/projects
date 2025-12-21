@@ -17,6 +17,8 @@ To address a lot of pending questions for future designs involving microcontroll
 
 -[Completed 2025-12-19]: [Computer program/script to send necessary serial commands to rp2040 to transmit the data and program the atmega328p (medium)](code/005_rp2040_icsp)
 
--Friday: PCB design for programmer circuit and some header pins/led on the atmega for simple debugging, like a dev board (medium)
+-[Completed 2025-12-20]: [PCB design for programmer circuit and some header pins/led on the atmega for simple debugging, like a dev board (medium)](cad/12001-001)
 
--Saturday: Create the actual PCB in house (hard) 
+-[Completed 2025-12-20]: Create the actual PCB in house (hard) 
+
+![final 12001](res/12001_final.jpg)
