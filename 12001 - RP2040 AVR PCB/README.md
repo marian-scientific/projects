@@ -1,6 +1,6 @@
 # 12001 - RP2040 AVR PCB
 
-AVR (Atmega329P) programmer via RP2040 zero dev board and custom in-house built PCB.
+AVR (Atmega328P) programmer via RP2040 zero dev board and custom in-house built PCB.
 
 ## Objective: 
 To address a lot of pending questions for future designs involving microcontrollers on MS-produced PCBs along with some programming and toolchain investigations, this is an RP2040-powered programmer for the Atmega328P. The stretch goal is to have this investigation complete by 2025-12-21.
