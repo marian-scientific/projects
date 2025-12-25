@@ -1,0 +1,45 @@
+<svg width="200mm" height="50mm" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+<path
+d="M 15 10
+l 0 10
+m 12.7 -10
+l 0 5
+m 12.7 -5
+l 0 10
+m 12.7 -10
+l 0 5
+m 12.7 -5
+l 0 10
+m 12.7 -10
+l 0 5
+m 12.7 -5
+l 0 10
+m 12.7 -10
+l 0 5
+m 12.7 -5
+l 0 10
+m 12.7 -10
+l 0 5
+m 12.7 -5
+l 0 10
+m 12.7 -10
+l 0 5
+m 12.7 -5
+l 0 10
+m 12.7 -10
+l 0 5
+m 12.7 -5
+l 0 10"
+stroke="black"
+fill="none"
+/>
+<rect x="10" y="10" width="189" height="25.4" stroke="black" fill="none"/>
+<text x="13" y="28" style="font-family: Brixton; font-size: 8px;">0</text>
+<text x="38.4" y="28" style="font-family: Brixton; font-size: 8px;">1</text>
+<text x="63.8" y="28" style="font-family: Brixton; font-size: 8px;">2</text>
+<text x="89.2" y="28" style="font-family: Brixton; font-size: 8px;">3</text>
+<text x="114.6" y="28" style="font-family: Brixton; font-size: 8px;">4</text>
+<text x="140.0" y="28" style="font-family: Brixton; font-size: 8px;">5</text>
+<text x="165.4" y="28" style="font-family: Brixton; font-size: 8px;">6</text>
+<text x="190.8" y="28" style="font-family: Brixton; font-size: 8px;">7</text>
+</svg>
