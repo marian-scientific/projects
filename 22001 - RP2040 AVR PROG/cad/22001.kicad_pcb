@@ -38,8 +38,8 @@
 		(allow_soldermask_bridges_in_footprints no)
 		(tenting front back)
 		(pcbplotparams
-			(layerselection 0x00000000_00000000_55555555_57555551)
-			(plot_on_all_layers_selection 0x00000000_00000000_00000000_00000000)
+			(layerselection 0x00000000_00000000_55555555_55555570)
+			(plot_on_all_layers_selection 0x00000000_00000000_00000000_02000000)
 			(disableapertmacros no)
 			(usegerberextensions no)
 			(usegerberattributes yes)
@@ -3751,8 +3751,21 @@
 		(layer "Edge.Cuts")
 		(uuid "d7e9cce5-ab2d-41d8-b3a0-4bee49457eb6")
 	)
+	(gr_text "SN:\nQC:"
+		(at 150 30.75 0)
+		(layer "F.SilkS")
+		(uuid "32929f81-c462-4bc1-a877-a29f61e28275")
+		(effects
+			(font
+				(size 1.8 1.8)
+				(thickness 0.4)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "MARIAN SCIENTIFIC"
-		(at 97.52 32.16 0)
+		(at 97.75 29.25 0)
 		(layer "F.SilkS")
 		(uuid "5a5da12e-9ead-441f-bec0-e11af5f07b44")
 		(effects
@@ -3765,13 +3778,14 @@
 		)
 	)
 	(gr_text "22001\nRP2040-ZERO\nATMEGA328\nPROGRAMMER\n\nARTISANALLY\nCRAFTED IN\nBRIDGEPORT, CT"
-		(at 154.45 64.09 0)
+		(at 155 63.75 0)
 		(layer "F.SilkS")
 		(uuid "d0fef75a-610c-4df4-9f99-a9f2981d726b")
 		(effects
 			(font
-				(size 1.5 1.5)
-				(thickness 0.2)
+				(size 1.8 1.8)
+				(thickness 0.4)
+				(bold yes)
 			)
 		)
 	)
