@@ -1,6 +1,11 @@
-# 22001 - RP2040 AVR PCB
+# 22001 - RP2040-ZERO ATMEGA328P PROGRAMMER
 
-AVR (Atmega328P) programmer via RP2040 zero dev board and custom in-house built PCB.
+AVR (ATMEGA328P) programmer via RP2040-ZERO dev board on a custom in-house built PCB using a homebrew software toolchain.
+
+## CODE
+- [Sample ATMEGA328 C code](code/001_ATMEGA328P_SAMPLE_CODE/)
+- [RP2040-ZERO In-Circuit Serial Programmer](code/002_RP2040-ZERO_ICSP/)
+- [Python script to flash the device](code/003_PYSERIAL_TRANSMIT_IHEX/)
 
 ## Objective: 
 Productionized and improved version of [12001](/12001%20-%20RP2040%20AVR%20PCB/README.md).
