@@ -14,6 +14,10 @@ The embedded RP2040-Zero board comes pre-flashed with the necessary ICSP firmwar
 - Plug USB-C cable into 22001 PCB, with the other end into your computer.
 - Run the linked Python script via `python transmit.py` to transmit the code onto the ATMEGA328P.
 
+![front](/22001%20-%20RP2040%20AVR%20PROG/res/001.jpg)
+
+![back](/22001%20-%20RP2040%20AVR%20PROG/res/002.jpg)
+
 ## Notes: 
 Productionized and improved version (see below) of [12001](/12001%20-%20RP2040%20AVR%20PCB/README.md).
 
