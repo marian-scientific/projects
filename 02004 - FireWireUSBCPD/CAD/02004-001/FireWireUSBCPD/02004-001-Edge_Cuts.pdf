@@ -62,7 +62,7 @@ endobj
 >>
 endobj
 40 0 obj
-<</S /GoTo /D [20 0 R /FitR 600 454 570 426]
+<</S /GoTo /D [20 0 R /FitR 606 454 575 426]
 >>
 endobj
 42 0 obj
@@ -236,7 +236,7 @@ endobj
 <<
 /Type /Annot
 /Subtype /Link
-/Rect [588.635 433.792 582.087 447.824]
+/Rect [594.304 433.792 587.756 447.824]
 /Border [16 16 0]
 /A << /Type /Action /S /JavaScript /JS (ShM\([
 ["Reference designator = R4"],
@@ -322,7 +322,7 @@ endobj
 52 0 obj
 <<
 /Producer (KiCad PDF)
-/CreationDate (D:20260209154116)
+/CreationDate (D:20260210232032)
 /Creator (PCBNEW)
 /Title (02004-001-Edge_Cuts.pdf)
 /Author ()
