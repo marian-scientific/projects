@@ -4,7 +4,7 @@ USB-C Power negotiation board and housing assembly for 15V to IEEE 1394 "FireWir
 
 Use at your own risk.
 
-![Finished Product](resources/02004_figC.jpg)
+<img src="resources/02004_figC.jpg" width="600" />
 
 ## Files
 * [02004-005-A, PCB](CAD/02004-005-A/02004-005-A.kicad_pro)
