@@ -22,16 +22,16 @@ Use at your own risk.
     * 1x FireWire 400 alpha receptacle
     * 1x CH224K USB-PD power delivery sink controller IC
     * 1x USB-C SMD, 6 pin receptacle
-    * 1x 1206 SMD resistors
+    * 1206 SMD resistors
         * 1x 1k
+        * 1x ~2k, optional
         * 1x 10k
-    * 1x 1206 SMD ceramic capacitors:
+    * 1206 SMD ceramic capacitors:
         * 1x 100nF
         * 1x 1uF
         * 1x 10uf
-    * 1x 1206 SMD 22uF electrolytic barrel capacitor
-    * 1x 1206 SMD LED (optional)
-    * 1x 1206 SMD ~2k resistor (optional)
+    * 1x 22uF electrolytic barrel capacitor
+    * 1x 1206 SMD LED, optional
 * Mechanical components:
     * 1x M3x4x5 heat set insert
     * 1x M3x~6-8 screw (ideally socket head cap)
