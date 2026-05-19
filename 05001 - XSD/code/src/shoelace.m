@@ -1,6 +1,6 @@
 function [A,cgx,cgy,Ixx,Iyy,Ixy]=shoelace(face)
 
-  N=length(face.x)
+  N=length(face.x);
 
   A=0;
   cgx=0;
