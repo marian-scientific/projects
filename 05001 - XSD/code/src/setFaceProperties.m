@@ -4,10 +4,12 @@ function [section]=setFaceProperties(section,face,material)
     face.E=10e6;
     face.G=11.5e3;
     face.v=.33;
+    face.rho=.098;
   elseif strcmp(material,"ABS")
     face.E=.2e6;
     face.G=127e3;
     face.v=.35;
+    face.rho=.0376;
   else
     return
   end
@@ -17,6 +19,7 @@ function [section]=setFaceProperties(section,face,material)
         section.faces(i).E=face.E;
         section.faces(i).G=face.G;
         section.faces(i).v=face.v;
+        section.faces(i).rho=face.rho;
       end
     end
 

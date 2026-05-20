@@ -19,7 +19,7 @@ function [face,section]=createFaceFromPaths(section,paths,name)
     error('Face boundary start and stop disconnected.');
   end
 
-  face=struct('x',x,'y',y,'visibility',true,'color','y','name',name,'E',NaN,'G',NaN,'v',NaN,'tag',3);
+  face=struct('x',x,'y',y,'visibility',true,'color','y','name',name,'E',NaN,'G',NaN,'v',NaN,'rho',NaN,'tag',3);
   section.faces=[section.faces face];
 
 end
