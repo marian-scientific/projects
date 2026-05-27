@@ -72,19 +72,19 @@ function [section] = evaluateInertias(section)
 
     A=section.faces(i).A;
     cgx=section.faces(i).cgx;
-    cgx=section.faces(i).cgx;
+    cgy=section.faces(i).cgy;
 
-    Ixx0=section.faces(i).IxxO;
-    iyy0=section.faces(i).IyyO;
-    Ixy0=section.faces(i).IxyO;
+    IxxG_i=section.faces(i).IxxG;
+    IyyG_i=section.faces(i).IyyG;
+    IxyG_i=section.faces(i).IxyG;
 
-    IxxP=IxxO+A*(cgy-yG)^2;
-    IyyP=IyyO+A*(cgx-xG)^2;
-    IxyP=IxyO+A*(cgx-xG)*(cgy-yG);
+    IxxP=IxxG_i+A*(cgy-yG)^2;
+    IyyP=IyyG_i+A*(cgx-xG)^2;
+    IxyP=IxyG_i+A*(cgx-xG)*(cgy-yG);
 
-    IxxG=IxxO+A*(cgy-yCG)^2;
-    IyyG=IyyO+A*(cgx-xCG)^2;
-    IxyG=IxyO+A*(cgx-xCG)*(cgy-yCG);
+    IxxG=IxxG_i+A*(cgy-yCG)^2;
+    IyyG=IyyG_i+A*(cgx-xCG)^2;
+    IxyG=IxyG_i+A*(cgx-xCG)*(cgy-yCG);
 
     EIxxPs=EIxxPs+IxxP*section.faces(i).E;
     EIyyPs=EIyyPs+IyyP*section.faces(i).E;

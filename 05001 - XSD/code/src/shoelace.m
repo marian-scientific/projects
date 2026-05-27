@@ -31,6 +31,12 @@ function [A,cgx,cgy,Ixx,Iyy,Ixy]=shoelace(face)
   Ixx=Ixx/12;
   Iyy=Iyy/12;
   Ixy=Ixy/24;
-  A=abs(A);
+
+  if A < 0
+    A=-A;
+    Ixx=-Ixx;
+    Iyy=-Iyy;
+    Ixy=-Ixy;
+  end
 
 end
