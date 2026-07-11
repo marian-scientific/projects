@@ -12,3 +12,5 @@ Bathroom towel bar hook adapter.
 | 04005-002 | 1 | [print](cad/04005-002.3mf) |
 | M5x10 | 4 | SHCS | 
 | M5x25 | 1 | any variety |
+
+<img src="res/photo.webp" width="600">
